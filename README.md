@@ -147,5 +147,12 @@ X-Powered-By: PHP/7.1.4
     composer cs-fix     // lint fix
     vendor/bin/phptest  // test + cs
     vendor/bin/phpbuild // phptest + doc + qa
+   
+### Deploy
+
+Edit `bin/deploy/server.yml` for server setting.
+
+    composer deploy-stage
+    composer deploy-prod
 
 ![](/docs/bear.png)

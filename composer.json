@@ -31,6 +31,8 @@
         "cs-fix": ["php-cs-fixer fix -v", "phpcbf src"],
         "serve": "php -S 127.0.0.1:8080 -t public",
         "api": "php bootstrap/api.php",
-        "web": "php bootstrap/web.php"
+        "web": "php bootstrap/web.php",
+        "deploy-prod": "cd bin/deploy; php deployer.phar deploy prod",
+        "deploy-stage": "cd bin/deploy; php deployer.phar deploy stage"
     }
 }
