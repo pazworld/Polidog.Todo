@@ -48,7 +48,6 @@ task('apache2:restart', function () {
 });
 
 // Tasks
-desc('Deploy BEAR.Sunday project');
 task('deploy', [
     'deploy:prepare',
     'deploy:lock',
