@@ -66,25 +66,29 @@ Allow: GET, POST
     "GET": {
         "summary": "Todos list",
         "description": "Returns the todos list specified by status",
-        "parameters": {
-            "status": {
-                "type": "string",
-                "description": "todo status"
+        "request": {
+            "parameters": {
+                "status": {
+                    "type": "string",
+                    "description": "todo status"
+                }
             }
         }
     },
     "POST": {
         "summary": "Create todo",
         "description": "Create todo and add to todos list",
-        "parameters": {
-            "title": {
-                "type": "string",
-                "description": "todo title"
-            }
-        },
-        "required": [
-            "title"
-        ]
+        "request": {
+            "parameters": {
+                "title": {
+                    "type": "string",
+                    "description": "todo title"
+                }
+            },
+            "required": [
+                "title"
+            ]
+        }
     }
 }
 ```
