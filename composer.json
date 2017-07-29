@@ -30,6 +30,7 @@
         "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
         "cs-fix": ["php-cs-fixer fix -v", "phpcbf src"],
         "serve": "php -S 127.0.0.1:8080 -t public",
+        "serve-api": "php -S 127.0.0.1:8081 bootstrap/api.php",
         "api": "php bootstrap/api.php",
         "web": "php bootstrap/web.php",
         "deploy-prod": "cd bin/deploy; php deployer.phar deploy prod",
