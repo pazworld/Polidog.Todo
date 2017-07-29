@@ -18,7 +18,7 @@ Optional modules:
 
 ## Prerequirests
 
-  * php 7.0.0 and up
+  * php 7.1+
 
 ## Installation
 
