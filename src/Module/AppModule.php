@@ -20,18 +20,18 @@ class AppModule extends AbstractModule
      */
     protected function configure()
     {
-        $rootDir = dirname(dirname(__DIR__));
+        $appDir = dirname(dirname(__DIR__));
         Dotenv::load([
             'filepath' => dirname(dirname(__DIR__)) . '/.env',
             'toEnv' => true
         ]);
         $this->install(new PackageModule);
         $this->install(new NowModule);
-        $this->install(new QueryLocatorModule($rootDir . '/var/sql'));
-        $this->install(new NamedModule(require $rootDir . '/var/conf/messages.php'));
-        $this->install(new JsonSchemalModule($rootDir . '/var/json_schema', $rootDir . '/var/json_validate'));
+        $this->install(new QueryLocatorModule($appDir . '/var/sql'));
+        $this->install(new NamedModule(require $appDir . '/var/conf/messages.php'));
+        $this->install(new JsonSchemalModule($appDir . '/var/json_schema', $appDir . '/var/json_validate'));
         // Database
-        $dbConfig = 'sqlite:' . $rootDir . '/var/db/todo.sqlite3';
+        $dbConfig = 'sqlite:' . $appDir . '/var/db/todo.sqlite3';
         $this->install(new AuraSqlModule($dbConfig));
         // Form
         $this->install(new AuraInputModule);
