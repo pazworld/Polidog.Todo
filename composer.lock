@@ -582,16 +582,16 @@
         },
         {
             "name": "bear/query-repository",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.QueryRepository.git",
-                "reference": "e54d4244b258eae29af5b5077485802df6db14eb"
+                "reference": "3ff4052ee99d3435014c658c8a8a194ee726d610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/e54d4244b258eae29af5b5077485802df6db14eb",
-                "reference": "e54d4244b258eae29af5b5077485802df6db14eb",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/3ff4052ee99d3435014c658c8a8a194ee726d610",
+                "reference": "3ff4052ee99d3435014c658c8a8a194ee726d610",
                 "shasum": ""
             },
             "require": {
@@ -621,7 +621,7 @@
                 }
             ],
             "description": "Resource query responsibility segregation",
-            "time": "2017-07-12T18:33:07+00:00"
+            "time": "2017-07-29T13:10:28+00:00"
         },
         {
             "name": "bear/resource",

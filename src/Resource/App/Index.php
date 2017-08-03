@@ -5,7 +5,7 @@ use BEAR\Package\Annotation\Curies;
 use BEAR\Resource\ResourceObject;
 
 /**
- * @Curies(name="pd", href="api.exmaple.com/docs/{rels}", template=true)
+ * @Curies(name="pd", href="/docs/{?rels}", template=true)
  */
 class Index extends ResourceObject
 {
