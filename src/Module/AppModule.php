@@ -29,7 +29,7 @@ class AppModule extends AbstractModule
         $this->install(new NowModule);
         $this->install(new QueryLocatorModule($appDir . '/var/sql'));
         $this->install(new NamedModule(require $appDir . '/var/conf/messages.php'));
-        $this->install(new JsonSchemalModule($appDir . '/var/json_schema', $appDir . '/var/json_validate'));
+        $this->install(new JsonSchemaModule($appDir . '/var/json_schema', $appDir . '/var/json_validate'));
         // Database
         $dbConfig = 'sqlite:' . $appDir . '/var/db/todo.sqlite3';
         $this->install(new AuraSqlModule($dbConfig));
