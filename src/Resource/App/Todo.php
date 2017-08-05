@@ -43,7 +43,7 @@ class Todo extends ResourceObject
      *
      * @param string $id todo id
      *
-     * @JsonSchema(schema="todo.json", params="todo.get.json")
+     * @JsonSchema(key="todo", schema="todo.json", params="todo.get.json")
      */
     public function onGet(string $id) : ResourceObject
     {
