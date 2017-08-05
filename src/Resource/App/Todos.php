@@ -12,6 +12,10 @@ class Todos extends ResourceObject
     use QueryLocatorInject;
 
     /**
+     * Return a list of todos
+     *
+     * @param int $status todo status
+     *
      * @JsonSchema(schema="todos.json")
      */
     public function onGet(int $status = null) : ResourceObject
