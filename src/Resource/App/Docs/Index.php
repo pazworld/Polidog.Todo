@@ -16,7 +16,7 @@ class Index extends ResourceObject
 
     public function onGet(string $rel) : ResourceObject
     {
-        $this->view = $this->resource->options->uri("app://self/{$rel}")->eager->request()->view;
+        $this->view = $this->resource->options->uri("app://self/{$rel}")()->view;
 
         return $this;
     }
