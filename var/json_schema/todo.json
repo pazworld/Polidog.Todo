@@ -26,12 +26,12 @@
     "created": {
       "description": "The date and time that the todo was created",
       "type": "string",
-      "format": "date-time"
+      "format": "datetime"
     },
     "updated": {
       "description": "The date and time that the todo was last modified",
       "type": "string",
-      "format": "date-time"
+      "format": "datetime"
     }
   },
   "required": ["title", "status", "created", "updated"],
