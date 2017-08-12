@@ -2,7 +2,11 @@
 
 require 'recipe/common.php';
 
-use function Deployer\{server, task, run, set, get, add, before, after, desc, runLocally, upload};
+use function Deployer\run;
+use function Deployer\runLocally;
+use function Deployer\set;
+use function Deployer\task;
+use function Deployer\upload;
 
 // Configuration
 set('git_tty', true); // [Optional] Allocate tty for git on first deployment
