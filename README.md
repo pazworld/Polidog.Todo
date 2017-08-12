@@ -53,6 +53,7 @@ content-type: application/json
 OPTIONS request supported ([RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2))
 
 > The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. This method allows the client to determine the options and/or requirements associated with a resource, or the capabilities of a server, without implying a resource action or initiating a resource retrieval.
+ 
 ```
 curl -i -X OPTIONS http://127.0.0.1:8080/
 ```
@@ -104,7 +105,7 @@ Allow: GET, POST
 > HTTP/1.1 servers SHOULD send Last-Modified whenever feasible.
 
 ```
-curl -i http://127.0.0.1:8080/
+`curl -i http://127.0.0.1:8080/`
 ```
 
 ```
@@ -137,6 +138,99 @@ Date: Wed, 31 May 2017 23:56:31 +0200
 Connection: close
 X-Powered-By: PHP/7.1.4
 ```
+
+## Hypermedia API
+
+
+Hypermedia API navigate around the resources by following links. Start by request the URI (/) of the route in the same way as the web site.
+
+```
+COMPOSER_PROCESS_TIMEOUT=0 composer serve-api
+```
+
+```
+curl -i http://127.0.0.1:8081/
+```
+
+```
+HTTP/1.1 200 OK
+Host: 127.0.0.1:8081
+Date: Sat, 12 Aug 2017 11:57:05 +0200
+Connection: close
+X-Powered-By: PHP/7.1.4
+content-type: application/hal+json
+
+{
+    "curies": {
+        "href": "/docs/{?rel}",
+        "name": "pt",
+        "templated": true
+    },
+    "message": "Welcome to the Polidog.Todo API ! Our hope is to be as self-documenting and RESTful as possible.",
+    "_links": {
+        "self": {
+            "href": "/index"
+        },
+        "pt:todo": {
+            "href": {
+                "href": "/todo"
+            }
+        },
+        "pt:todos": {
+            "href": {
+                "href": "/todos"
+            }
+        }
+    }
+}
+```
+
+"CURIE"s help providing links to resource documentation. It gives you a reserved link relation 'curies' which you can use to hint at the location of resource documentation.
+
+Links in turn can then prefix their 'rel' with a CURIE name. Associating the `todo` link with the doc documentation CURIE results in a link `rel` set to `pt:todo`.
+
+To retrieve documentation about the `todo` resource, the client will expand the associated CURIE link with the actual link's 'rel'. This would result in a URL `/docs/?rel=todo` which is expected to return documentation about this resource.
+
+
+Open `http://127.0.0.1:8080/docs/?rel=todo` in bowser.
+
+```
+curl -i -X POST http://127.0.0.1:8081/todo -d "title=walking"
+```
+
+```
+HTTP/1.1 201 Created
+Host: 127.0.0.1:8081
+Date: Sat, 12 Aug 2017 12:07:08 +0200
+Connection: close
+X-Powered-By: PHP/7.1.4
+Location: /todo?id=2
+Content-type: text/html; charset=UTF-8
+
+{
+    "todo": {
+        "id": "2",
+        "title": "walking",
+        "status": "1",
+        "created": "2017-08-12 12:07:08",
+        "updated": "2017-08-12 12:07:08",
+        "status_name": "Complete"
+    },
+    "_links": {
+        "self": {
+            "href": "/todo?id=2"
+        }
+    }
+}
+```
+
+or by JSON (Reuqest condent-renogotiation with is default)
+
+```
+curl -i http://127.0.0.1:8081/todo -X POST -H 'Content-Type: application/json' -d '{"title":"think" }'
+```
+
+You can also post by JSON.
 
 ### Console acess
 
