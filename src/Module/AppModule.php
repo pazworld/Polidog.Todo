@@ -28,7 +28,7 @@ class AppModule extends AbstractModule
         $this->install(new PackageModule);
         $this->install(new NowModule);
         $this->install(new QueryLocatorModule($appDir . '/var/sql'));
-        $this->install(new NamedModule(require $appDir . '/var/conf/messages.php'));
+        $this->install(new NamedModule(require $appDir . '/var/locale/en.php'));
         $this->install(new JsonSchemalModule($appDir . '/var/json_schema', $appDir . '/var/json_validate'));
         // Database
         $dbConfig = 'sqlite:' . $appDir . '/var/db/todo.sqlite3';
