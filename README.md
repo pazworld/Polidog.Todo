@@ -182,6 +182,7 @@ To retrieve documentation about the `todo` resource, the client will expand the 
 
 Open `http://127.0.0.1:8080/docs/?rel=todo` in bowser.
 
+<img width="700" alt="api" src="https://user-images.githubusercontent.com/529021/29240307-46a049c4-7f9d-11e7-9922-aa18c5ec6821.png">
 
 ```
 curl -i -X POST http://127.0.0.1:8081/todo -d "title=walking"
