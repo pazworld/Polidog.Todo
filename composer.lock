@@ -519,16 +519,16 @@
         },
         {
             "name": "bear/package",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.Package.git",
-                "reference": "e0a86661cab91608c94481a0cc59d44786ecddc6"
+                "reference": "ba10dd813f812136acd843405eb3266caf4357a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/e0a86661cab91608c94481a0cc59d44786ecddc6",
-                "reference": "e0a86661cab91608c94481a0cc59d44786ecddc6",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/ba10dd813f812136acd843405eb3266caf4357a3",
+                "reference": "ba10dd813f812136acd843405eb3266caf4357a3",
                 "shasum": ""
             },
             "require": {
@@ -553,11 +553,16 @@
                 "psr-4": {
                     "BEAR\\Package\\": [
                         "src/",
-                        "src-deprecated"
+                        "src-deprecated/"
                     ]
                 },
                 "files": [
                     "src-files/apcu.php"
+                ],
+                "exclude-from-classmap": [
+                    "/src-deprecated/",
+                    "/tests/",
+                    "/docs/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -578,7 +583,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2017-07-21T02:04:33+00:00"
+            "time": "2017-08-12T22:40:05+00:00"
         },
         {
             "name": "bear/query-repository",
