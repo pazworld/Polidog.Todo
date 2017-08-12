@@ -156,33 +156,26 @@ content-type: application/hal+json
     "message": "Welcome to the Polidog.Todo API ! Our hope is to be as self-documenting and RESTful as possible.",
     "_links": {
         "self": {
-            "href": {
-                "href": "/"
-            }
+            "href": "/"
         },
         "curies": [
             {
-                "href": {
-                    "href": "http://localhost:8080/docs/{?rel}",
-                    "name": "pt",
-                    "templated": true
-                }
+                "href": "http://localhost:8080/docs/{?rel}",
+                "name": "pt",
+                "templated": true
             }
         ],
         "pt:todo": {
-            "href": {
-                "href": "/todo",
-                "title": "todo item"
-            }
+            "href": "/todo",
+            "title": "todo item"
         },
         "pt:todos": {
-            "href": {
-                "href": "/todos",
-                "title": "todo list"
-            }
+            "href": "/todos",
+            "title": "todo list"
         }
     }
 }
+
 ```
 
 "CURIE"s help providing links to resource documentation. It gives you a reserved link relation 'curies' which you can use to hint at the location of resource documentation.
