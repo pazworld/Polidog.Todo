@@ -26,49 +26,30 @@
         </table>
         <span class="label label-default">Required</span>
         <span>{{ method.request.required | join(', ')}}</span>
-        <h3>Schema</h3>
 
+        {% if method.schema %}
+            <h3>Schema <a href="/schemas/{{ method.schema.id }}">{{ method.schema.id }}</a></h3>
+        {%  endif %}
         {% if method.schema.properties %}
-        <table class="table">
-            <tr>
-                <th>Property</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Constraints</th>
-            </tr>
-            {% for prop_name, prop in method.schema.properties %}
-            <tr>
-                <td>{{ prop_name }}</td>
-                <td>{{ prop.type }}</td>
-                <td>{{ prop.description }}</td>
-                <td>
-                    <table class="table table-condensed">
-                        {% for const_name, const in prop if const_name != 'type'%}
-                            {% if not (const_name in ['description']) %}
-                            <tr>
-                                <td>{{ const_name }}</td>
-                                <td>{{ const | json_encode()}}</td>
-                            </tr>
-                            {% endif %}
-                        {% endfor %}
-                    </table>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-            <div>
-                <span class="label label-default">Required</span>
-                <span>{{ method.schema.required | join(', ')}}</span>
-            </div>
-            {% if method.schema.additionalProperties is defined %}
-                <div>
-                    <span class="label label-default">additionalProperties</span>
-                    <span>{{ method.schema.additionalProperties ? 'yes' : 'no'}}</span>
-                </div>
-            {% endif %}
-        {% else %}
-            n/a<br>
+            {%  set schema = method.schema%}
+            {%  include 'schema.html.twig' %}
         {% endif %}
 
+        {{ method.schema.items.key}}
+        {% if method.schema.type == 'array' %}
+            <span class="label label-default">array</span>
+            <table class="table">
+            {% for key, item in method.schema.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    {% if key == '$ref' %}
+                        <td><a href="/schemas/{{ item }}">{{ item }}</a></td>
+                    {% else %}
+                        <td>{{ item }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
     {% endfor %}
 {% endblock %}

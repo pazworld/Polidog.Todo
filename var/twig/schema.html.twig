@@ -1,0 +1,38 @@
+
+<table class="table">
+    <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Constraints</th>
+    </tr>
+    {% for prop_name, prop in schema.properties %}
+        <tr>
+            <td>{{ prop_name }}</td>
+            <td>{{ prop.type }}</td>
+            <td>{{ prop.description }}</td>
+            <td>
+                <table class="table table-condensed">
+                    {% for const_name, const in prop if const_name != 'type'%}
+                        {% if not (const_name in ['description']) %}
+                            <tr>
+                                <td>{{ const_name }}</td>
+                                <td>{{ const | json_encode()}}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<div>
+    <span class="label label-default">Required</span>
+    <span>{{ method.schema.required | join(', ')}}</span>
+</div>
+{% if method.schema.additionalProperties is defined %}
+    <div>
+        <span class="label label-default">additionalProperties</span>
+        <span>{{ method.schema.additionalProperties ? 'yes' : 'no'}}</span>
+    </div>
+{% endif %}
