@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ rel }}{% endblock %}
+
+{% block content %}
+    <h1 class="page-header">{{ rel }}</h1>
+    <h2><span class="font-family: monospace">{{ href }}</span></h2>
+    {% for method_name, method in doc %}
+        <hr style="width: 100%; color: gray; height: 1px; background-color:gray;" />
+        <h2>{{ method_name }}</h2>
+        <p class="lead">{{ method.summary }}</p>
+        <h3>Parameters</h3>
+        <table class="table">
+        {% for param_name, parameters in method.request.parameters %}
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>{{ param_name }}</td>
+                <td>{{ parameters.type }}</td>
+                <td>{{ parameters.description }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <span class="label label-default">Required</span>
+        <span>{{ method.request.required | join(', ')}}</span>
+        <h3>Schema</h3>
+
+        {% if method.schema.properties %}
+        <table class="table">
+            <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Constraints</th>
+            </tr>
+            {% for prop_name, prop in method.schema.properties %}
+            <tr>
+                <td>{{ prop_name }}</td>
+                <td>{{ prop.type }}</td>
+                <td>{{ prop.description }}</td>
+                <td>
+                    <table class="table table-condensed">
+                        {% for const_name, const in prop if const_name != 'type'%}
+                            {% if not (const_name in ['description']) %}
+                            <tr>
+                                <td>{{ const_name }}</td>
+                                <td>{{ const | json_encode()}}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+            <div>
+                <span class="label label-default">Required</span>
+                <span>{{ method.schema.required | join(', ')}}</span>
+            </div>
+            {% if method.schema.additionalProperties is defined %}
+                <div>
+                    <span class="label label-default">additionalProperties</span>
+                    <span>{{ method.schema.additionalProperties ? 'yes' : 'no'}}</span>
+                </div>
+            {% endif %}
+        {% else %}
+            n/a<br>
+        {% endif %}
+
+    {% endfor %}
+{% endblock %}
