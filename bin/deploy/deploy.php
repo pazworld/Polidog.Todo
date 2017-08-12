@@ -1,5 +1,4 @@
 <?php
-
 namespace Deployer;
 
 require __DIR__ . '/recipe/bearsunday.php';
