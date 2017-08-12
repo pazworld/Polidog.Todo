@@ -1,5 +1,7 @@
 <?php
 
+use BEAR\Accept\Accept;
+
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 $available = [
@@ -14,7 +16,7 @@ $available = [
         'en-US' => 'en'
     ]
 ];
-$accept = new \BEAR\Accept\Accept($available);
+$accept = new Accept($available);
 list($context, $vary) = $accept($_SERVER);
 
 require __DIR__ . '/bootstrap.php';
