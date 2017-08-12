@@ -20,7 +20,7 @@ class Index extends ResourceObject
             return $this->index();
         }
         $index = $this->resource->options->uri('app://self/')()->body;
-        $rel = sprintf('%s:%s', $index['curies']['name'], $rel);
+        $rel = sprintf('%s:%s', $index['_links']['curies']['name'], $rel);
         $links = $index['_links'];
         if (! isset($links[$rel]['href'])) {
             throw new ResourceNotFoundException($rel);
@@ -40,8 +40,10 @@ class Index extends ResourceObject
     private function index()
     {
         $index = $this->resource->uri('app://self/index')()->body;
-        $name = $index['curies']['name'];
+        $name = $index['_links']['curies']['name'];
         $links = [];
+        unset($index['_links']['curies']);
+        unset($index['_links']['self']);
         foreach ($index['_links'] as $rel => $value) {
             $newRel = str_replace($name . ':' , '', $rel);
             $links[$newRel] = $value;

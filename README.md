@@ -149,24 +149,32 @@ X-Powered-By: PHP/7.1.4
 content-type: application/hal+json
 
 {
-    "curies": {
-        "href": "/docs/{?rel}",
-        "name": "pt",
-        "templated": true
-    },
     "message": "Welcome to the Polidog.Todo API ! Our hope is to be as self-documenting and RESTful as possible.",
     "_links": {
         "self": {
-            "href": "/index"
+            "href": {
+                "href": "/"
+            }
         },
+        "curies": [
+            {
+                "href": {
+                    "href": "http://localhost:8080/docs/{?rel}",
+                    "name": "pt",
+                    "templated": true
+                }
+            }
+        ],
         "pt:todo": {
             "href": {
-                "href": "/todo"
+                "href": "/todo",
+                "title": "todo item"
             }
         },
         "pt:todos": {
             "href": {
-                "href": "/todos"
+                "href": "/todos",
+                "title": "todo list"
             }
         }
     }
