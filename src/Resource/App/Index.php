@@ -5,14 +5,14 @@ use BEAR\Package\Annotation\Curies;
 use BEAR\Resource\ResourceObject;
 
 /**
- * @Curies(name="pd", href="/docs/{?rels}", template=true)
+ * @Curies(name="pt", href="/docs/{?rels}", template=true)
  */
 class Index extends ResourceObject
 {
     public $body = [
         '_links' => [
-            'pd:todo' => ['href' => '/todo'],
-            'pd:todos' => ['href' => '/todos']
+            'pt:todo' => ['href' => '/todo'],
+            'pt:todos' => ['href' => '/todos']
         ]
     ];
 
