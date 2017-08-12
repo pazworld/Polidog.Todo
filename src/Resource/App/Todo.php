@@ -62,7 +62,8 @@ class Todo extends ResourceObject
     /**
      * Create a todo
      *
-     * @param $title todo title
+     * @param string       $title todo title
+     * @param NowInterface $now   current time
      *
      * @Assisted("now")
      * @ReturnCreatedResource
