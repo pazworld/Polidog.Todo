@@ -1,4 +1,4 @@
-
+{% if schema.properties %}
 <table class="table">
     <tr>
         <th>Property</th>
@@ -26,13 +26,33 @@
         </tr>
     {% endfor %}
 </table>
-<div>
-    <span class="label label-default">Required</span>
-    <span>{{ method.schema.required | join(', ')}}</span>
-</div>
-{% if method.schema.additionalProperties is defined %}
+{% endif %}
+
+{% if schema.type == 'array' %}
+    <span class="label label-default">array</span>
+    <table class="table">
+        {% for key, item in schema.items %}
+            <tr>
+                <td>{{ key }}</td>
+                {% if key == '$ref' %}
+                    <td><a href="/docs/schema?id={{ item }}">{{ item }}</a></td>
+                {% else %}
+                    <td>{{ item | json_encode()}}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% if schema.required is defined %}
+    <div>
+        <span class="label label-default">Required</span>
+        <span>{{ schema.required | join(', ')}}</span>
+    </div>
+{% endif %}
+{% if schema.additionalProperties is defined %}
     <div>
         <span class="label label-default">additionalProperties</span>
-        <span>{{ method.schema.additionalProperties ? 'yes' : 'no'}}</span>
+        <span>{{ schema.additionalProperties ? 'yes' : 'no'}}</span>
     </div>
 {% endif %}

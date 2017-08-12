@@ -28,28 +28,9 @@
         <span>{{ method.request.required | join(', ')}}</span>
 
         {% if method.schema %}
-            <h3>Schema <a href="/schemas/{{ method.schema.id }}">{{ method.schema.id }}</a></h3>
+            <h3>Schema <a href="/docs/schema?id={{ method.schema.id }}">{{ method.schema.id }}</a></h3>
         {%  endif %}
-        {% if method.schema.properties %}
-            {%  set schema = method.schema%}
-            {%  include 'schema.html.twig' %}
-        {% endif %}
-
-        {{ method.schema.items.key}}
-        {% if method.schema.type == 'array' %}
-            <span class="label label-default">array</span>
-            <table class="table">
-            {% for key, item in method.schema.items %}
-                <tr>
-                    <td>{{ key }}</td>
-                    {% if key == '$ref' %}
-                        <td><a href="/schemas/{{ item }}">{{ item }}</a></td>
-                    {% else %}
-                        <td>{{ item }}</td>
-                    {% endif %}
-                </tr>
-            {% endfor %}
-            </table>
-        {% endif %}
+        {%  set schema = method.schema%}
+        {%  include 'schema.table.html.twig' %}
     {% endfor %}
 {% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ rel }}{% endblock %}
+{% block content %}
+    <h1>{{ schema.id }}</h1>
+    {%  include 'schema.table.html.twig' %}
+    <p class="lead"><a href="/schemas/{{ schema.id }}">{{ schema.id }} raw file</a></p>
+{% endblock %}
