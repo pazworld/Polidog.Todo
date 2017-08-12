@@ -16,14 +16,13 @@ class Docs extends ResourceObject
     {
         $links = $this->resource->options->uri('app://self/')()->body['_links'];
         $href = $links[$rel]['href'];
-        $uri = 'app://self'. $href;
+        $uri = 'app://self' . $href;
         $optionsJson = $this->resource->options->uri($uri)()->view;
         $this->body = [
             'doc' => json_decode($optionsJson, true),
             'rel' => $rel,
             'href' => $href
         ];
-
 
         return $this;
     }
