@@ -1,36 +1,9 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}{{ rel }}{% endblock %}
-
 {% block content %}
-    <h1 class="page-header">{{ rel }}</h1>
-    <h2><span class="font-family: monospace">{{ href }}</span></h2>
-    {% for method_name, method in doc %}
-        <hr style="width: 100%; color: gray; height: 1px; background-color:gray;" />
-        <h2>{{ method_name }}</h2>
-        <p class="lead">{{ method.summary }}</p>
-        <h3>Parameters</h3>
-        <table class="table">
-        {% for param_name, parameters in method.request.parameters %}
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>{{ param_name }}</td>
-                <td>{{ parameters.type }}</td>
-                <td>{{ parameters.description }}</td>
-            </tr>
-        {% endfor %}
-        </table>
-        <span class="label label-default">Required</span>
-        <span>{{ method.request.required | join(', ')}}</span>
-
-        {% if method.schema %}
-            <h3>Schema <a href="/docs/schema?id={{ method.schema.id }}">{{ method.schema.id }}</a></h3>
-        {%  endif %}
-        {%  set schema = method.schema%}
-        {%  include 'schema.table.html.twig' %}
-    {% endfor %}
+    {% if rel is defined %}
+        {% include './rel.html.twig' %}
+    {% else %}
+        {% include './welcome.html.twig' %}
+    {% endif %}
 {% endblock %}

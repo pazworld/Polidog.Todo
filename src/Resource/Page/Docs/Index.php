@@ -14,6 +14,9 @@ class Index extends ResourceObject
 
     public function onGet(string $rel = null) : ResourceObject
     {
+        if ($rel === null) {
+            return $this->index();
+        }
         $links = $this->resource->options->uri('app://self/')()->body['_links'];
         $href = $links[$rel]['href'];
         $uri = 'app://self' . $href;
@@ -26,4 +29,16 @@ class Index extends ResourceObject
 
         return $this;
     }
+
+    private function index()
+    {
+        $index = $this->resource->uri('app://self/index')()->body;
+        $this->body = [
+            'message' => $index['message'],
+            'links' => $index['_links']
+        ];
+
+        return $this;
+    }
+
 }
