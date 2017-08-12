@@ -91,7 +91,7 @@ Allow: GET, POST
 > HTTP/1.1 servers SHOULD send Last-Modified whenever feasible.
 
 ```
-`curl -i http://127.0.0.1:8080/`
+curl -i http://127.0.0.1:8080/
 ```
 
 ```
