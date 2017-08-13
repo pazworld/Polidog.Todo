@@ -23,8 +23,9 @@ class Schema extends ResourceObject
     public function onGet(string $id) : ResourceObject
     {
         $path = realpath($this->schemaDir . '/' . $id);
-        if (strpos($path, $this->schemaDir) == false) {
-            //            throw new \DomainException($id);
+        $isInvalidFilePath = (strncmp($path, $this->schemaDir, strlen($this->schemaDir)) !== 0);
+        if ($isInvalidFilePath) {
+            throw new \DomainException($id);
         }
         $schema = (array) json_decode(file_get_contents($path), true);
         $this->body['schema'] = $schema;
