@@ -197,12 +197,9 @@ content-type: application/hal+json
 
 Links in turn can then prefix their `rel` with a CURIE name. Associating the `todo` link with the doc documentation CURIE results in a link `rel` set to `pt:todo`.
 
-To retrieve documentation about the `todo` resource, the client will expand the associated CURIE link with the actual link's 'rel'. This would result in a URL `/docs/?rel=todo` which is expected to return documentation about this resource.
+To retrieve documentation about the `todo` resource, the client will expand the associated CURIE link with the actual link's `rel`. This would result in a URL http://127.0.0.1:8080/docs/?rel=todo which is expected to return documentation about this resource.
 
-
-Open `http://127.0.0.1:8080/docs/?rel=todo` in bowser.
-
-<img width="700" alt="api" src="https://user-images.githubusercontent.com/529021/29240307-46a049c4-7f9d-11e7-9922-aa18c5ec6821.png">
+Create TODO according to the document.
 
 ```
 curl -i -X POST http://127.0.0.1:8081/todo -d "title=walking"
