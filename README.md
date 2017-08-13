@@ -145,8 +145,19 @@ curl -H 'Accept-Language: ja' http://127.0.0.1:8080/
 
 ## Hypermedia API
 
+The API is a **self documented** and **discoverable** RESTful HAL(Hyper Application Language) API. HAL is a format based on json that establishes conventions for representing links. For example:
 
-Hypermedia API navigate around the resources by following links. Start by request the URI (/) of the route in the same way as the web site.
+```
+{
+    "_links": {
+        "self": { "href": "/orders" },
+        "next": { "href": "/orders?page=2" }
+    }
+}
+```
+More detail about HAL can be found at http://stateless.co/hal_specification.html.
+
+Hypermedia API navigate around the resources by following links. Start by request the URI (/) of the route in the same way as the web site. 
 
 ```
 curl -i http://127.0.0.1:8081/
@@ -186,9 +197,9 @@ content-type: application/hal+json
 
 ```
 
-"CURIE"s help providing links to resource documentation. It gives you a reserved link relation 'curies' which you can use to hint at the location of resource documentation.
+**CURIE** help providing links to resource documentation. It gives you a reserved link relation `curies` which you can use to hint at the location of resource documentation.
 
-Links in turn can then prefix their 'rel' with a CURIE name. Associating the `todo` link with the doc documentation CURIE results in a link `rel` set to `pt:todo`.
+Links in turn can then prefix their `rel` with a CURIE name. Associating the `todo` link with the doc documentation CURIE results in a link `rel` set to `pt:todo`.
 
 To retrieve documentation about the `todo` resource, the client will expand the associated CURIE link with the actual link's 'rel'. This would result in a URL `/docs/?rel=todo` which is expected to return documentation about this resource.
 
@@ -232,6 +243,10 @@ or by JSON (Reuqest condent-renogotiation with is default)
 ```
 curl -i http://127.0.0.1:8081/todo -X POST -H 'Content-Type: application/json' -d '{"title":"think" }'
 ```
+
+The API is fully compatible with [mikekelly/hal-browser](https://github.com/mikekelly/hal-browser) REST API browser.
+
+![image](https://user-images.githubusercontent.com/529021/29247668-d00d403e-8044-11e7-9dff-65d5d98535b4.png)
 
 ## Content-Negotiation for API media type
 
@@ -279,3 +294,5 @@ Edit `bin/deploy/server.yml` for server setting.
 
 
 ![](/docs/bear.png)
+
+* The text of this README is partly taken from https://github.com/mikekelly/hal-browser, http://stateless.co/hal_specification.html and modified.
