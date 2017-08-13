@@ -1,5 +1,5 @@
 {% if schema.properties %}
-<table class="table">
+<table class="table table-sm">
     <tr>
         <th>Property</th>
         <th>Type</th>
@@ -46,13 +46,17 @@
 
 {% if schema.required is defined %}
     <div>
-        <span class="label label-default">Required</span>
-        <span>{{ schema.required | join(', ')}}</span>
+        <h6>
+            <span class="badge badge-default">Required</span>
+            <span>{{ schema.required | join(', ')}}</span>
+        </h6>
     </div>
 {% endif %}
 {% if schema.additionalProperties is defined %}
     <div>
-        <span class="label label-default">additionalProperties</span>
-        <span>{{ schema.additionalProperties ? 'yes' : 'no'}}</span>
+        <h6>
+            <span class="badge badge-default">additionalProperties</span>
+            <span>{{ schema.additionalProperties ? 'yes' : 'no'}}</span>
+        </h6>
     </div>
 {% endif %}
