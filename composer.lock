@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "039a6f2effb368c509218d55621e5e04",
+    "content-hash": "94fa2a11469bdd4e65af339b9ad60679",
     "packages": [
+        {
+            "name": "aura/accept",
+            "version": "2.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auraphp/Aura.Accept.git",
+                "reference": "38d835363d424e07b35dd35f46b00b2916500ee6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auraphp/Aura.Accept/zipball/38d835363d424e07b35dd35f46b00b2916500ee6",
+                "reference": "38d835363d424e07b35dd35f46b00b2916500ee6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "aura/di": "~2.0",
+                "phpunit/phpunit": "~5.7 || ~4.8"
+            },
+            "type": "library",
+            "extra": {
+                "aura": {
+                    "type": "library",
+                    "config": {
+                        "common": "Aura\\Accept\\_Config\\Common"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aura\\Accept\\": "src/",
+                    "Aura\\Accept\\_Config\\": "config/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Aura.Accept Contributors",
+                    "homepage": "https://github.com/auraphp/Aura.Accept/contributors"
+                }
+            ],
+            "description": "Provides content-negotiation tools using Accept* headers.",
+            "homepage": "https://github.com/auraphp/Aura.Accept",
+            "keywords": [
+                "accept",
+                "accept-charset",
+                "accept-encoding",
+                "accept-language",
+                "content negotiation",
+                "content type",
+                "media type"
+            ],
+            "time": "2017-03-10T17:30:49+00:00"
+        },
         {
             "name": "aura/cli",
             "version": "2.2.0",
@@ -481,6 +540,54 @@
             "time": "2016-10-03T20:34:56+00:00"
         },
         {
+            "name": "bear/accept",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bearsunday/BEAR.Accept.git",
+                "reference": "d80a529477288d1b5346e3bd3093d48c4dfb8655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.Accept/zipball/d80a529477288d1b5346e3bd3093d48c4dfb8655",
+                "reference": "d80a529477288d1b5346e3bd3093d48c4dfb8655",
+                "shasum": ""
+            },
+            "require": {
+                "aura/accept": "^2.2.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "bear/package": "^1.4",
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "phpmd/phpmd": "^2.6",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BEAR\\Accept\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akihito Koriyama",
+                    "email": "akihito.koriyama@gmail.com"
+                }
+            ],
+            "description": "Provides content-negotiation using Accept* headers for BEAR.Sunday",
+            "keywords": [
+                "accept",
+                "content negotiation"
+            ],
+            "time": "2017-08-10T16:47:43+00:00"
+        },
+        {
             "name": "bear/app-meta",
             "version": "1.2.4",
             "source": {
@@ -587,16 +694,16 @@
         },
         {
             "name": "bear/query-repository",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.QueryRepository.git",
-                "reference": "3ff4052ee99d3435014c658c8a8a194ee726d610"
+                "reference": "5a12bd1bd24dfe854f2d1103ef54ce7a2fcc9b22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/3ff4052ee99d3435014c658c8a8a194ee726d610",
-                "reference": "3ff4052ee99d3435014c658c8a8a194ee726d610",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/5a12bd1bd24dfe854f2d1103ef54ce7a2fcc9b22",
+                "reference": "5a12bd1bd24dfe854f2d1103ef54ce7a2fcc9b22",
                 "shasum": ""
             },
             "require": {
@@ -626,7 +733,7 @@
                 }
             ],
             "description": "Resource query responsibility segregation",
-            "time": "2017-07-29T13:10:28+00:00"
+            "time": "2017-08-13T04:24:37+00:00"
         },
         {
             "name": "bear/resource",
