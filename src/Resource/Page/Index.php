@@ -26,11 +26,17 @@ class Index extends ResourceObject
     public $todoForm;
 
     /**
-     * @Named("todoForm=todo_form")
+     * @var string
      */
-    public function __construct(FormInterface $todoForm)
+    private $viewText;
+
+    /**
+     * @Named("todoForm=todo_form, viewText=page_index")
+     */
+    public function __construct(FormInterface $todoForm, array $viewText)
     {
         $this->todoForm = $todoForm;
+        $this->viewText = $viewText;
     }
 
     /**
@@ -44,8 +50,11 @@ class Index extends ResourceObject
      */
     public function onGet(string $status = null) : ResourceObject
     {
-        $this['todo_form'] = (string) $this->todoForm;
-        $this['status'] = (int) $status;
+        $this->body += [
+            'todo_form' => (string) $this->todoForm,
+            'status' => (int) $status,
+            'text' => $this->viewText
+        ];
 
         return $this;
     }
