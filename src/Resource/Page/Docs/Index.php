@@ -20,12 +20,12 @@ class Index extends ResourceObject
             return $this->index();
         }
         $index = $this->resource->options->uri('app://self/')()->body;
-        $rel = sprintf('%s:%s', $index['_links']['curies']['name'], $rel);
+        $namedRel = sprintf('%s:%s', $index['_links']['curies']['name'], $rel);
         $links = $index['_links'];
-        if (! isset($links[$rel]['href'])) {
+        if (! isset($links[$namedRel]['href'])) {
             throw new ResourceNotFoundException($rel);
         }
-        $href = $links[$rel]['href'];
+        $href = $links[$namedRel]['href'];
         $uri = 'app://self' . $href;
         $optionsJson = $this->resource->options->uri($uri)()->view;
         $this->body = [
