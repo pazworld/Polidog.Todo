@@ -1,11 +1,11 @@
-<h1 class="page-header">{{ rel }}</h1>
-<h2><span class="font-family: monospace">{{ href }}</span></h2>
+<h1 class="display-4">{{ rel }}</h1>
+<h2>{{ href }}</h2>
 {% for method_name, method in doc %}
-    <hr style="width: 100%; color: gray; height: 1px; background-color:gray;" />
-    <h2>{{ method_name }}</h2>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h1>{{ method_name }}</h1>
     <p class="lead">{{ method.summary }}</p>
     <h3>Parameters</h3>
-    <table class="table">
+    <table class="table table-sm">
     {% for param_name, parameters in method.request.parameters %}
         <tr>
             <th>Name</th>
@@ -19,11 +19,15 @@
         </tr>
     {% endfor %}
     </table>
-    <span class="label label-default">Required</span>
-    <span>{{ method.request.required | join(', ')}}</span>
+    <h6>
+        <span class="badge badge-default">Required</span>
+        <span>{{ method.request.required | join(', ')}}</span>
+    </h6>
 
     {% if method.schema %}
-        <h3>Schema <a href="/docs/schema?id={{ method.schema.id }}">{{ method.schema.id }}</a></h3>
+        <div style="height: 30px"></div>
+        <h3>Schema </h3>
+        <h4><a href="/docs/schema?id={{ method.schema.id }}">{{ method.schema.id }}</a></h4>
     {%  endif %}
     {%  set schema = method.schema%}
     {%  include 'schema.table.html.twig' %}
