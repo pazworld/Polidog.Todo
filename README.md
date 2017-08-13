@@ -125,7 +125,7 @@ Date: Wed, 31 May 2017 23:56:31 +0200
 Connection: close
 X-Powered-By: PHP/7.1.4
 ```
-## Content-Negotiation
+## Content-Negotiation for language
 
 prefer English
 
@@ -137,18 +137,6 @@ prefer Japanese
 
 ```
 curl -H 'Accept-Language: ja' http://127.0.0.1:8080/
-```
-
-prefer HAL+JSON API
-
-```
-curl -i -H 'Accept: application/hal+json' http://127.0.0.1:8081/todos
-```
-
-prefer JSON API
-
-```
-curl -i -H 'Accept: application/json' http://127.0.0.1:8081/todos
 ```
 
 ## Hypermedia API
@@ -241,7 +229,20 @@ or by JSON (Reuqest condent-renogotiation with is default)
 curl -i http://127.0.0.1:8081/todo -X POST -H 'Content-Type: application/json' -d '{"title":"think" }'
 ```
 
-You can also post by JSON.
+## Content-Negotiation for API media type
+
+
+prefer HAL+JSON API
+
+```
+curl -i -H 'Accept: application/hal+json' http://127.0.0.1:8081/todos
+```
+
+prefer JSON API
+
+```
+curl -i -H 'Accept: application/json' http://127.0.0.1:8081/todos
+```
 
 ## Console acess
 
