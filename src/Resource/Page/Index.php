@@ -26,6 +26,11 @@ class Index extends ResourceObject
     public $todoForm;
 
     /**
+     * @var array
+     */
+    public $body = [];
+
+    /**
      * @var string
      */
     private $viewText;
