@@ -20,6 +20,7 @@ This is a "Todos" example app built on the principles described in the [Coding G
 ## Run Web Server
 
     COMPOSER_PROCESS_TIMEOUT=0 composer serve
+    COMPOSER_PROCESS_TIMEOUT=0 composer serve-api // API + API doc server
 
 ## Web access with curl
 
@@ -128,17 +129,36 @@ Date: Wed, 31 May 2017 23:56:31 +0200
 Connection: close
 X-Powered-By: PHP/7.1.4
 ```
+## Content-Negotiation
+
+prefer English
+
+```
+curl -H 'Accept-Language: en' http://127.0.0.1:8080/
+```
+
+prefer Japanese
+
+```
+curl -H 'Accept-Language: ja' http://127.0.0.1:8080/
+```
+
+prefer HAL+JSON API
+
+```
+curl -i -H 'Accept: application/hal+json' http://127.0.0.1:8081/todos
+```
+
+prefer JSON API
+
+```
+curl -i -H 'Accept: application/json' http://127.0.0.1:8081/todos
+```
 
 ## Hypermedia API
 
 
 Hypermedia API navigate around the resources by following links. Start by request the URI (/) of the route in the same way as the web site.
-
-### Run API and API-Doc Server
-
-```
-COMPOSER_PROCESS_TIMEOUT=0 composer serve-api
-```
 
 ```
 curl -i http://127.0.0.1:8081/
