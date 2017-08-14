@@ -25,35 +25,12 @@ class Index extends ResourceObject
         $this->route = $route;
     }
 
-    public function onGet(string $rel = null) : ResourceObject
+    public function onGet(string $rel = null): ResourceObject
     {
-        if ($rel === null) {
-            return $this->index();
-        }
-        $index = $this->resource->options->uri('app://self/')()->body;
-        $namedRel = sprintf('%s:%s', $index['_links']['curies']['name'], $rel);
-        $links = $index['_links'];
-        if (! isset($links[$namedRel]['href'])) {
-            throw new ResourceNotFoundException($rel);
-        }
-        $href = $links[$namedRel]['href'];
-        $path = $this->isTemplated($links[$namedRel]) ? $this->match($href) : $href;
-        $uri = 'app://self' . $path;
-        try {
-            $optionsJson = $this->resource->options->uri($uri)()->view;
-        } catch (ResourceNotFoundException $e) {
-            throw new HrefNotFoundException($href, 0 ,$e);
-        }
-        $this->body = [
-            'doc' => json_decode($optionsJson, true),
-            'rel' => $rel,
-            'href' => $href
-        ];
-
-        return $this;
+        return ($rel === null) ? $this->indexPage() : $this->relPage($rel);
     }
 
-    private function index()
+    private function indexPage(): ResourceObject
     {
         $index = $this->resource->uri('app://self/index')()->body;
         $name = $index['_links']['curies']['name'];
@@ -61,7 +38,7 @@ class Index extends ResourceObject
         unset($index['_links']['curies']);
         unset($index['_links']['self']);
         foreach ($index['_links'] as $rel => $value) {
-            $newRel = str_replace($name . ':' , '', $rel);
+            $newRel = str_replace($name . ':', '', $rel);
             $links[$newRel] = $value;
         }
         $this->body = [
@@ -73,12 +50,37 @@ class Index extends ResourceObject
         return $this;
     }
 
-    private function isTemplated(array $links) : bool
+    private function relPage(string $rel): ResourceObject
     {
-        return (isset($links['templated']) && $links['templated'] === true)  ? true : false;
+        $index = $this->resource->options->uri('app://self/')()->body;
+        $namedRel = sprintf('%s:%s', $index['_links']['curies']['name'], $rel);
+        $links = $index['_links'];
+        if (!isset($links[$namedRel]['href'])) {
+            throw new ResourceNotFoundException($rel);
+        }
+        $href = $links[$namedRel]['href'];
+        $path = $this->isTemplated($links[$namedRel]) ? $this->match($href) : $href;
+        $uri = 'app://self' . $path;
+        try {
+            $optionsJson = $this->resource->options->uri($uri)()->view;
+        } catch (ResourceNotFoundException $e) {
+            throw new HrefNotFoundException($href, 0, $e);
+        }
+        $this->body = [
+            'doc' => json_decode($optionsJson, true),
+            'rel' => $rel,
+            'href' => $href
+        ];
+
+        return $this;
     }
 
-    private function match($tempaltedPath) : string
+    private function isTemplated(array $links): bool
+    {
+        return (isset($links['templated']) && $links['templated'] === true) ? true : false;
+    }
+
+    private function match($tempaltedPath): string
     {
         $routes = $this->route->getRoutes();
         foreach ($routes as $route) {
