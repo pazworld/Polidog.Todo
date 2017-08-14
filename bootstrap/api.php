@@ -8,7 +8,7 @@ $available = [
     'Accept' => [
         'application/hal+json' => 'hal-api-app',
         'application/json' => 'api-app',
-        'cli' => 'cli-hal-app'
+        'cli' => 'cli-hal-api-app'
     ],
     'Accept-Language' => [
         'ja' => 'ja',
