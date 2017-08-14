@@ -16,8 +16,14 @@ class Index extends ResourceObject
                 'name' => 'pt',
                 'templated' => true
             ],
-            'pt:todo' => ['href' => '/todo/{id}', 'title' => 'todo item'],
-            'pt:todos' => ['href' => '/todos', 'title' => 'todo list']
+            'pt:todo' => [
+                'href' => '/todo/{id}',
+                'title' => 'todo item',
+                'templated' => true
+            ],
+            'pt:todos' => [
+                'href' => '/todos',
+                'title' => 'todo list']
         ]
     ];
 
