@@ -1,6 +1,7 @@
 <?php
 namespace Polidog\Todo\Resource\Page\Docs;
 
+use BEAR\Package\Provide\Router\AuraRoute;
 use BEAR\RepositoryModule\Annotation\Cacheable;
 use BEAR\Resource\Exception\HrefNotFoundException;
 use BEAR\Resource\Exception\ResourceNotFoundException;
@@ -14,6 +15,16 @@ class Index extends ResourceObject
 {
     use ResourceInject;
 
+    /**
+     * @var AuraRoute
+     */
+    private $route;
+
+    public function __construct(AuraRoute $route)
+    {
+        $this->route = $route;
+    }
+
     public function onGet(string $rel = null) : ResourceObject
     {
         if ($rel === null) {
@@ -26,8 +37,13 @@ class Index extends ResourceObject
             throw new ResourceNotFoundException($rel);
         }
         $href = $links[$namedRel]['href'];
-        $uri = 'app://self' . $href;
-        $optionsJson = $this->resource->options->uri($uri)()->view;
+        $path = $this->isTemplated($links[$namedRel]) ? $this->match($href) : $href;
+        $uri = 'app://self' . $path;
+        try {
+            $optionsJson = $this->resource->options->uri($uri)()->view;
+        } catch (ResourceNotFoundException $e) {
+            throw new HrefNotFoundException($href, 0 ,$e);
+        }
         $this->body = [
             'doc' => json_decode($optionsJson, true),
             'rel' => $rel,
@@ -57,4 +73,20 @@ class Index extends ResourceObject
         return $this;
     }
 
+    private function isTemplated(array $links) : bool
+    {
+        return (isset($links['templated']) && $links['templated'] === true)  ? true : false;
+    }
+
+    private function match($tempaltedPath) : string
+    {
+        $routes = $this->route->getRoutes();
+        foreach ($routes as $route) {
+            if ($tempaltedPath == $route->path) {
+                return $route->values['path'];
+            }
+        }
+
+        return $tempaltedPath;
+    }
 }
