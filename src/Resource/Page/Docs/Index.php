@@ -7,6 +7,7 @@ use BEAR\Resource\Exception\HrefNotFoundException;
 use BEAR\Resource\Exception\ResourceNotFoundException;
 use BEAR\Resource\ResourceObject;
 use BEAR\Sunday\Inject\ResourceInject;
+use Ray\Di\Di\Named;
 
 /**
  * @Cacheable(type="view", expiry="never")
@@ -16,11 +17,16 @@ class Index extends ResourceObject
     use ResourceInject;
 
     /**
+     * Optional aura router
+     *
      * @var AuraRoute
      */
     private $route;
 
-    public function __construct(AuraRoute $route)
+    /**
+     * @Named("aura_router")
+     */
+    public function __construct($route = null)
     {
         $this->route = $route;
     }
@@ -77,7 +83,7 @@ class Index extends ResourceObject
 
     private function isTemplated(array $links): bool
     {
-        return (isset($links['templated']) && $links['templated'] === true) ? true : false;
+        return ($this->route instanceof AuraRoute && isset($links['templated']) && $links['templated'] === true) ? true : false;
     }
 
     private function match($tempaltedPath): string
