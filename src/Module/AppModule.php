@@ -2,6 +2,7 @@
 namespace Polidog\Todo\Module;
 
 use BEAR\Package\PackageModule;
+use BEAR\Package\Provide\Router\AuraRouterModule;
 use BEAR\Resource\Module\JsonSchemalModule;
 use BEAR\Sunday\Module\Constant\NamedModule;
 use josegonzalez\Dotenv\Loader as Dotenv;
@@ -25,6 +26,7 @@ class AppModule extends AbstractModule
             'filepath' => dirname(dirname(__DIR__)) . '/.env',
             'toEnv' => true
         ]);
+        $this->install(new AuraRouterModule);
         $this->install(new PackageModule);
         $this->install(new NowModule);
         $this->install(new QueryLocatorModule($appDir . '/var/sql'));
