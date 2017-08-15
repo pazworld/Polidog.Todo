@@ -1,5 +1,5 @@
 <?php
-namespace Polidog\Todo\Resource\Page\Docs;
+namespace Polidog\Todo\Resource\Page\Rels;
 
 use BEAR\RepositoryModule\Annotation\Cacheable;
 use BEAR\Resource\ResourceObject;

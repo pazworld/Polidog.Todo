@@ -4,4 +4,4 @@
 /* @var $schemeHost string */
 
 $router->route('/todo', '/todo/{id}');
-$router->route('/docs/index', '/rels/{rel}');
+$router->route('/rels/index', '/rels/{rel}');
