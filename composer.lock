@@ -594,59 +594,6 @@
             "time": "2016-10-03T20:34:56+00:00"
         },
         {
-            "name": "aura/web",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/Aura.Web.git",
-                "reference": "6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Web/zipball/6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6",
-                "reference": "6aa9f316e8d6f7f6e29577aa3c7bf4493a89bdd6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "aura/di": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "aura": {
-                    "type": "library",
-                    "config": {
-                        "common": "Aura\\Web\\_Config\\Common"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Aura\\Web\\": "src/",
-                    "Aura\\Web\\_Config\\": "config/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Aura.Web Contributors",
-                    "homepage": "https://github.com/auraphp/Aura.Web/contributors"
-                }
-            ],
-            "description": "Provides web Request and Response objects for use by web controllers and actions. These are representations of the PHP web environment, not HTTP request and response objects proper.",
-            "homepage": "https://github.com/auraphp/Aura.Web",
-            "keywords": [
-                "request",
-                "response"
-            ],
-            "time": "2017-02-09T17:05:11+00:00"
-        },
-        {
             "name": "bear/accept",
             "version": "0.1.0",
             "source": {
@@ -733,24 +680,24 @@
         },
         {
             "name": "bear/aura-router-module",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.AuraRouterModule.git",
-                "reference": "5743f9fbb3ec2a29f57c175029161145e268f7bf"
+                "reference": "e237518d90be8f1d8780b36ad7ad05ba5d9e0ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.AuraRouterModule/zipball/5743f9fbb3ec2a29f57c175029161145e268f7bf",
-                "reference": "5743f9fbb3ec2a29f57c175029161145e268f7bf",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.AuraRouterModule/zipball/e237518d90be8f1d8780b36ad7ad05ba5d9e0ba7",
+                "reference": "e237518d90be8f1d8780b36ad7ad05ba5d9e0ba7",
                 "shasum": ""
             },
             "require": {
-                "aura/router": "~2.0",
-                "aura/web": "~2.0"
+                "aura/router": "^2.0"
             },
             "require-dev": {
-                "bear/package": "~1.0@dev"
+                "bear/package": "^1.1",
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "autoload": {
@@ -774,7 +721,7 @@
                 "aura",
                 "router"
             ],
-            "time": "2016-04-02T18:59:10+00:00"
+            "time": "2017-08-15T07:32:51+00:00"
         },
         {
             "name": "bear/package",
@@ -889,16 +836,16 @@
         },
         {
             "name": "bear/resource",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.Resource.git",
-                "reference": "3394062d30a5e9f4e4d21f2c79fd56b52248cc6a"
+                "reference": "1c198841da39bee9bbdac998fb61706e829f8028"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.Resource/zipball/3394062d30a5e9f4e4d21f2c79fd56b52248cc6a",
-                "reference": "3394062d30a5e9f4e4d21f2c79fd56b52248cc6a",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.Resource/zipball/1c198841da39bee9bbdac998fb61706e829f8028",
+                "reference": "1c198841da39bee9bbdac998fb61706e829f8028",
                 "shasum": ""
             },
             "require": {
@@ -953,7 +900,7 @@
                 "protocol",
                 "rest"
             ],
-            "time": "2017-08-05T11:25:33+00:00"
+            "time": "2017-08-14T16:21:00+00:00"
         },
         {
             "name": "bear/sunday",
