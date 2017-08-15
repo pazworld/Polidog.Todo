@@ -26,7 +26,7 @@ class AppModule extends AbstractModule
             'filepath' => dirname(dirname(__DIR__)) . '/.env',
             'toEnv' => true
         ]);
-        $this->install(new AuraRouterModule);
+        $this->install(new AuraRouterModule($appDir . '/var/conf/aura.route.php'));
         $this->install(new PackageModule);
         $this->install(new NowModule);
         $this->install(new QueryLocatorModule($appDir . '/var/sql'));
