@@ -35,7 +35,7 @@
             <tr>
                 <td>{{ key }}</td>
                 {% if key == '$ref' %}
-                    <td><a href="/docs/schema?id={{ item }}">{{ item }}</a></td>
+                    <td><a href="schema?id={{ item }}">{{ item }}</a></td>
                 {% else %}
                     <td>{{ item | json_encode()}}</td>
                 {% endif %}
