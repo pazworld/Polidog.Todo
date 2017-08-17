@@ -12,7 +12,7 @@ class Index extends ResourceObject
                 'href' => '/',
             ],
             'curies' => [
-                'href' => 'http://localhost:8080/rels/{rel}',
+                'href' => 'http://localhost:8080/rels/{?rel}',
                 'name' => 'pt',
                 'templated' => true
             ],
