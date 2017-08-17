@@ -1,9 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ rel }}{% endblock %}
 {% block content %}
+
     {% if rel is defined %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">API Doc</a></li>
+            <li class="breadcrumb-item">rels</a></li>
+            <li class="breadcrumb-item active">{{ rel }}</li>
+        </ol>
         {% include './rel.html.twig' %}
     {% else %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">API Doc</li>
+        </ol>
         {% include './welcome.html.twig' %}
     {% endif %}
 {% endblock %}
