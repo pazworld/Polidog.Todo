@@ -27,7 +27,7 @@
     {% if method.schema %}
         <div style="height: 30px"></div>
         <h3>Schema </h3>
-        <h4><a href="schema?id={{ method.schema.id }}">{{ method.schema.id }}</a></h4>
+        <h4><a href="?schema={{ method.schema.id }}">{{ method.schema.id }}</a></h4>
     {%  endif %}
     {%  set schema = method.schema%}
     {%  include 'schema.table.html.twig' %}
