@@ -9,6 +9,15 @@
             <li class="breadcrumb-item active">{{ rel }}</li>
         </ol>
         {% include './rel.html.twig' %}
+    {% elseif schema is defined %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">API Doc</a></li>
+            <li class="breadcrumb-item">schemas</a></li>
+            <li class="breadcrumb-item active">{{ schema.id }}</li>
+        </ol>
+        <h1>{{ schema.id }}</h1>
+        {%  include 'schema.table.html.twig' %}
+        <p class="lead"><a href="/schemas/{{ schema.id }}">{{ schema.id }} raw file</a></p>
     {% else %}
         <ol class="breadcrumb">
             <li class="breadcrumb-item active">API Doc</li>

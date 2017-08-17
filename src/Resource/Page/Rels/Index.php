@@ -7,6 +7,7 @@ use BEAR\Resource\Exception\HrefNotFoundException;
 use BEAR\Resource\Exception\ResourceNotFoundException;
 use BEAR\Resource\ResourceObject;
 use BEAR\Sunday\Inject\ResourceInject;
+use Ray\Di\Di\Inject;
 use Ray\Di\Di\Named;
 
 /**
@@ -24,6 +25,11 @@ class Index extends ResourceObject
     private $route;
 
     /**
+     * @var string
+     */
+    private $schemaDir;
+
+    /**
      * @Named("aura_router")
      */
     public function __construct($route = null)
@@ -31,9 +37,25 @@ class Index extends ResourceObject
         $this->route = $route;
     }
 
-    public function onGet(string $rel = null): ResourceObject
+    /**
+     * @Inject
+     * @Named("schemaDir=json_schema_dir")
+     */
+    public function setScehmaDir(string $schemaDir = '')
     {
-        return ($rel === null) ? $this->indexPage() : $this->relPage($rel);
+        $this->schemaDir = $schemaDir;
+    }
+
+    public function onGet(string $rel = null, $schema = null): ResourceObject
+    {
+        if ($rel) {
+            return $this->relPage($rel);
+        }
+        if ($schema) {
+            return $this->scehmaPage($schema);
+        }
+
+        return $this->indexPage();
     }
 
     private function indexPage(): ResourceObject
@@ -77,6 +99,19 @@ class Index extends ResourceObject
             'rel' => $rel,
             'href' => $href
         ];
+
+        return $this;
+    }
+
+    public function scehmaPage(string $id) : ResourceObject
+    {
+        $path = realpath($this->schemaDir . '/' . $id);
+        $isInvalidFilePath = (strncmp($path, $this->schemaDir, strlen($this->schemaDir)) !== 0);
+        if ($isInvalidFilePath) {
+            throw new \DomainException($id);
+        }
+        $schema = (array) json_decode(file_get_contents($path), true);
+        $this->body['schema'] = $schema;
 
         return $this;
     }
