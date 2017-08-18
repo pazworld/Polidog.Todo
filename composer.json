@@ -27,7 +27,7 @@
         }
     },
     "scripts": {
-        "setup": ["php bin/init_db.php"],
+        "setup": ["php bin/setup.php"],
         "test": ["phpunit"],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
