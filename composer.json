@@ -16,7 +16,7 @@
         "koriym/http-constants": "^1.0.1",
         "bear/accept": "^0.1.0",
         "bear/aura-router-module": "~1.0",
-        "bear/api-doc": "1.x-dev"
+        "bear/api-doc": "^0.1"
     },
     "require-dev": {
         "bear/qatools": "^1.4"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "92f300ae8818897f13f0eb8c88966a9c",
+    "content-hash": "60959920f9ec0098bb44366f77d9559a",
     "packages": [
         {
             "name": "aura/accept",
@@ -643,16 +643,16 @@
         },
         {
             "name": "bear/api-doc",
-            "version": "1.x-dev",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.ApiDoc.git",
-                "reference": "8d226b6c5faf0a105a67b4187552d14c5ce9c309"
+                "reference": "b50ffe4e006de8b1895128ae39cd67dd7453fdec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/8d226b6c5faf0a105a67b4187552d14c5ce9c309",
-                "reference": "8d226b6c5faf0a105a67b4187552d14c5ce9c309",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/b50ffe4e006de8b1895128ae39cd67dd7453fdec",
+                "reference": "b50ffe4e006de8b1895128ae39cd67dd7453fdec",
                 "shasum": ""
             },
             "require": {
@@ -679,7 +679,7 @@
                 }
             ],
             "description": "API Doc page class for BEAR.Sunday",
-            "time": "2017-08-17 20:45:05"
+            "time": "2017-08-18T07:35:53+00:00"
         },
         {
             "name": "bear/app-meta",
@@ -5459,8 +5459,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "roave/security-advisories": 20,
-        "bear/api-doc": 20
+        "roave/security-advisories": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
