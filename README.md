@@ -4,7 +4,7 @@
 
 This is a "Todos" example app built on the principles described in the [Coding Guide](http://bearsunday.github.io/manuals/1.0/en/coding-guide.html).
 
-## How to test and run
+## Getting Started
     git clone git@github.com:koriym/Polidog.Todo.git
     cd Polidog.Todo
     composer install
