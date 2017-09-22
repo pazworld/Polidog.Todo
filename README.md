@@ -4,19 +4,15 @@
 
 This is a "Todos" example app built on the principles described in the [Coding Guide](http://bearsunday.github.io/manuals/1.0/en/coding-guide.html).
 
-## Prerequirests
-
-  * php 7.1+
-
-## Installation
-
+## Getting Started
+    git clone git@github.com:koriym/Polidog.Todo.git
+    cd Polidog.Todo
     composer install
     composer setup
-
-## Run Web Server
-
     COMPOSER_PROCESS_TIMEOUT=0 composer serve
     COMPOSER_PROCESS_TIMEOUT=0 composer serve-api // API + API doc server
+
+Open http://127.0.0.1:8080/ for web page
 
 ## Web access with curl
 
@@ -287,5 +283,9 @@ Edit `bin/deploy/server.yml` for server setting.
 
 
 ![](/docs/bear.png)
+
+## Prerequirests
+
+  * php 7.1+
 
 * The text of this README is partly taken from https://github.com/mikekelly/hal-browser, http://stateless.co/hal_specification.html and modified.
