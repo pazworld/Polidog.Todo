@@ -1,7 +1,7 @@
 {
     "name": "polidog/todo",
     "type": "project",
-    "description": "",
+    "description": "todo demo application",
     "license": "proprietary",
     "require": {
         "php": ">=7.0.0",
