@@ -16,6 +16,8 @@ This is a "Todos" example app built on the principles described in the [Coding G
     COMPOSER_PROCESS_TIMEOUT=0 composer serve
     COMPOSER_PROCESS_TIMEOUT=0 composer serve-api // API + API doc server
 
+Open http://127.0.0.1:8080/ for web page
+
 ## Web access with curl
 
 Return 405 response when unavailable method is requested. 
