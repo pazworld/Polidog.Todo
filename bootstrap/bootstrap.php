@@ -2,7 +2,7 @@
 
 use BEAR\Package\Bootstrap;
 
-require dirname(__DIR__) . '/bin/autoload.php';
+require dirname(__DIR__) . '/autoload.php';
 
 /* @global string $context */
 $app = (new Bootstrap)->getApp('Polidog\Todo', $context, dirname(__DIR__));
