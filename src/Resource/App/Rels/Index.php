@@ -1,5 +1,5 @@
 <?php
-namespace Polidog\Todo\Resource\Page\Rels;
+namespace Polidog\Todo\Resource\App\Rels;
 
 use BEAR\ApiDoc\ApiDoc;
 
