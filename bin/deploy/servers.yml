@@ -3,7 +3,7 @@ prod:
     user:          root
     identity_file: ~
     deploy_path:   /var/www/Polidog.Todo
-    repository:    git@github.com:koriym/Polidog.Todo.git
+    repository:    https://github.com/koriym/Polidog.Todo.git
     branch:        deploy
     dotenv:        .env.prod
     context:       prod-html-app
@@ -14,7 +14,7 @@ stage:
     user:          root
     identity_file: ~
     deploy_path:   /var/www/Polidog.Todo
-    repository:    git@github.com:koriym/Polidog.Todo.git
+    repository:    https://github.com/koriym/Polidog.Todo.git
     branch:        master
     dotenv:        .env.stage
     context:       html-app
