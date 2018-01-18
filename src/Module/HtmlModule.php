@@ -9,9 +9,9 @@ class HtmlModule extends AbstractModule
 {
     protected function configure()
     {
-        $this->install(new TwigModule());
+        $this->install(new TwigModule);
         $rootDir = dirname(dirname(__DIR__));
-        $paths = [$rootDir . '/var/twig/'];
+        $paths = [$rootDir . '/var/lib/twig/'];
         $this->bind()->annotatedWith(TwigPaths::class)->toInstance($paths);
     }
 }
