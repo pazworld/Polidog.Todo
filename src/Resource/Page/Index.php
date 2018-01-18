@@ -60,7 +60,6 @@ class Index extends ResourceObject
             'status' => (int) $status,
             'text' => $this->viewText
         ];
-
         return $this;
     }
 
