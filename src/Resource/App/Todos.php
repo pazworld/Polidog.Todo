@@ -5,11 +5,25 @@ use BEAR\Resource\Annotation\JsonSchema;
 use BEAR\Resource\ResourceObject;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
+use Ray\Di\Di\Named;
 
 class Todos extends ResourceObject
 {
     use AuraSqlInject;
     use QueryLocatorInject;
+
+    /**
+     * @var string[]
+     */
+    public $text;
+
+    /**
+     * @Named("text=page_index")
+     */
+    public function __construct(array $text)
+    {
+        $this->text = $text;
+    }
 
     /**
      * Return a list of todos
