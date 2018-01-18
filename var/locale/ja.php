@@ -15,10 +15,12 @@ return [
         'tab_all' => '全て',
         'tab_incomplete' => '未完了',
         'tab_complete' => '完了',
-        'todo_id' => 'id',
-        'todo_title' => 'タイトル',
-        'todo_created_at' => '作成日',
         'done' => '完了',
+    ],
+    'app_todos' => [
+        'id' => 'id',
+        'title' => 'タイトル',
+        'created_at' => '作成日',
         'no_message' => 'todoはありません'
     ]
 ];
