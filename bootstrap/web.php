@@ -1,4 +1,4 @@
 <?php
 
-$context = 'cli-html-hal-app';
+$context = 'cli-html-app';
 require __DIR__ . '/bootstrap.php';
