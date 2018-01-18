@@ -15,10 +15,12 @@ return [
         'tab_all' => 'All',
         'tab_incomplete' => 'Incomplete',
         'tab_complete' => 'Completed',
-        'todo_id' => 'id',
-        'todo_title' => 'Title',
-        'todo_created_at' => 'CreatedAt',
-        'done' => 'done',
+        'done' => 'done'
+    ],
+    'app_todos' => [
+        'id' => 'id',
+        'title' => 'Title',
+        'created_at' => 'CreatedAt',
         'no_message' => 'No todos now.'
     ]
 ];
