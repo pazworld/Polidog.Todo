@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdc4cf5d8e53776d895129b58405e3ff",
+    "content-hash": "28f51134439ffabf7a27b93b9bd52252",
     "packages": [
         {
             "name": "aura/accept",
@@ -770,16 +770,16 @@
         },
         {
             "name": "bear/package",
-            "version": "1.7.7",
+            "version": "1.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.Package.git",
-                "reference": "3f5b7b31722c486ab7fd668339f47455834c5302"
+                "reference": "adcf76185a932cad6766c55d8f0168741406a37a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/3f5b7b31722c486ab7fd668339f47455834c5302",
-                "reference": "3f5b7b31722c486ab7fd668339f47455834c5302",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/adcf76185a932cad6766c55d8f0168741406a37a",
+                "reference": "adcf76185a932cad6766c55d8f0168741406a37a",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +833,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2018-05-13T09:56:00+00:00"
+            "time": "2018-05-14T12:19:05+00:00"
         },
         {
             "name": "bear/query-repository",
