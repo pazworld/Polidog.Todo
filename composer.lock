@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28f51134439ffabf7a27b93b9bd52252",
+    "content-hash": "9db84b9771f525246af6dc8425f3b594",
     "packages": [
         {
             "name": "aura/accept",
@@ -770,22 +770,22 @@
         },
         {
             "name": "bear/package",
-            "version": "1.7.8",
+            "version": "1.7.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.Package.git",
-                "reference": "adcf76185a932cad6766c55d8f0168741406a37a"
+                "reference": "c34602b03c91d03187cbd1036d7ca5af3f2fb629"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/adcf76185a932cad6766c55d8f0168741406a37a",
-                "reference": "adcf76185a932cad6766c55d8f0168741406a37a",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.Package/zipball/c34602b03c91d03187cbd1036d7ca5af3f2fb629",
+                "reference": "c34602b03c91d03187cbd1036d7ca5af3f2fb629",
                 "shasum": ""
             },
             "require": {
                 "aura/cli": "^2.2",
                 "bear/app-meta": "^1.4",
-                "bear/query-repository": "1.4.5",
+                "bear/query-repository": "^1.4.5",
                 "bear/streamer": "^1.0.1",
                 "bear/sunday": "^1.2.2",
                 "monolog/monolog": "^1.22",
@@ -833,20 +833,20 @@
                 "framework",
                 "rest"
             ],
-            "time": "2018-05-14T12:19:05+00:00"
+            "time": "2018-05-16T05:08:32+00:00"
         },
         {
             "name": "bear/query-repository",
-            "version": "1.4.5",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.QueryRepository.git",
-                "reference": "65b935bed5f90573944e7aaaccc0470b125d7fb0"
+                "reference": "613a5e9acf9a1d1a4e1da371a93a8ae1cd6dd7ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/65b935bed5f90573944e7aaaccc0470b125d7fb0",
-                "reference": "65b935bed5f90573944e7aaaccc0470b125d7fb0",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.QueryRepository/zipball/613a5e9acf9a1d1a4e1da371a93a8ae1cd6dd7ff",
+                "reference": "613a5e9acf9a1d1a4e1da371a93a8ae1cd6dd7ff",
                 "shasum": ""
             },
             "require": {
@@ -876,7 +876,7 @@
                 }
             ],
             "description": "Resource query responsibility segregation",
-            "time": "2018-03-27T08:25:59+00:00"
+            "time": "2018-05-15T03:52:03+00:00"
         },
         {
             "name": "bear/resource",
@@ -1641,16 +1641,16 @@
         },
         {
             "name": "m1/env",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/m1/Env.git",
-                "reference": "d87eddd031f2aa5450fa04bb1325de8a489b3cd0"
+                "reference": "3589eae8e40d40be96de39222a6ca19c3af8eae4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/m1/Env/zipball/d87eddd031f2aa5450fa04bb1325de8a489b3cd0",
-                "reference": "d87eddd031f2aa5450fa04bb1325de8a489b3cd0",
+                "url": "https://api.github.com/repos/m1/Env/zipball/3589eae8e40d40be96de39222a6ca19c3af8eae4",
+                "reference": "3589eae8e40d40be96de39222a6ca19c3af8eae4",
                 "shasum": ""
             },
             "require": {
@@ -1695,7 +1695,7 @@
                 "parser",
                 "support"
             ],
-            "time": "2016-10-06T19:31:28+00:00"
+            "time": "2018-05-16T22:40:58+00:00"
         },
         {
             "name": "madapaja/twig-module",
@@ -2464,6 +2464,61 @@
                 "guice"
             ],
             "time": "2018-05-08T08:17:18+00:00"
+        },
+        {
+            "name": "ray/query-module",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ray-di/Ray.QueryModule.git",
+                "reference": "7ff043e62130f16080d4fa5602bee061b694dcb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ray-di/Ray.QueryModule/zipball/7ff043e62130f16080d4fa5602bee061b694dcb3",
+                "reference": "7ff043e62130f16080d4fa5602bee061b694dcb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "ray/aura-sql-module": "^1.6",
+                "ray/di": "^2.6.6"
+            },
+            "require-dev": {
+                "bear/resource": "^1.9.2",
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpmd/phpmd": "^2.6",
+                "phpstan/phpstan-shim": "^0.9",
+                "phpunit/phpunit": "^6.5",
+                "ray/aop": "^2.7",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ray\\Query\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akihito Koriyama"
+                }
+            ],
+            "homepage": "https://github.com/koriym/Koriym.PhpSkeleton",
+            "keywords": [
+                "Skeleton",
+                "psr"
+            ],
+            "time": "2018-05-18T08:24:50+00:00"
         },
         {
             "name": "ray/web-form-module",
