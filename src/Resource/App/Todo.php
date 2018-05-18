@@ -11,6 +11,8 @@ use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
 use Ray\Di\Di\Assisted;
 use Ray\Di\Di\Named;
+use Ray\Query\QueryInterface;
+use Ray\Query\RowInterface;
 
 class Todo extends ResourceObject
 {
@@ -31,11 +33,40 @@ class Todo extends ResourceObject
     private $msg = [];
 
     /**
-     * @Named("app_todo")
+     * @var callable
      */
-    public function __construct(array $msg)
-    {
+    private $getTodo;
+
+    /**
+     * @var callable
+     */
+    private $createTodo;
+
+    /**
+     * @var callable
+     */
+    private $updateTodo;
+
+    /**
+     * @var callable
+     */
+    private $deleteTodo;
+
+    /**
+     * @Named("msg=app_todo,getTodo=todo_select,createTodo=todo_insert,updateTodo=todo_update,,deleteTodo=todo_delete")
+     */
+    public function __construct(
+        array $msg,
+        RowInterface $getTodo,
+        callable $createTodo,
+        callable $updateTodo,
+        callable $deleteTodo
+    ) {
         $this->msg = $msg;
+        $this->getTodo = $getTodo;
+        $this->createTodo = $createTodo;
+        $this->updateTodo = $updateTodo;
+        $this->deleteTodo = $deleteTodo;
     }
 
     /**
@@ -47,14 +78,14 @@ class Todo extends ResourceObject
      */
     public function onGet(string $id) : ResourceObject
     {
-        $todo = $this->pdo->fetchOne($this->query['todo_select'], ['id' => $id]);
+        $todo = ($this->getTodo)(['id' => $id]);
         if (empty($todo)) {
             $this->code = StatusCode::NOT_FOUND;
 
             return $this;
         }
         $todo['status_name'] = $todo['status'] == self::INCOMPLETE ? $this->msg[true] : $this->msg[false];
-        $this['todo'] = $todo;
+        $this->body['todo'] = $todo;
 
         return $this;
     }
@@ -65,18 +96,18 @@ class Todo extends ResourceObject
      * @param string       $title todo title
      * @param NowInterface $now   current time
      *
-     * @Assisted("now")
+     * @Assisted({"now"})
+     * @Named("createTodo=todo_insert")
      * @ReturnCreatedResource
      */
     public function onPost(string $title, NowInterface $now = null) : ResourceObject
     {
-        $value = [
+        ($this->createTodo)([
             'title' => $title,
             'status' => self::INCOMPLETE,
             'created' => (string) $now,
             'updated' => (string) $now,
-        ];
-        $this->pdo->perform($this->query['todo_insert'], $value);
+        ]);
         $id = $this->pdo->lastInsertId();
         $this->code = StatusCode::CREATED;
         $this->headers[ResponseHeader::LOCATION] = "/todo?id={$id}";
@@ -92,11 +123,10 @@ class Todo extends ResourceObject
      */
     public function onPut(string $id, int $status) : ResourceObject
     {
-        $value = [
+        ($this->updateTodo)([
             'id' => $id,
             'status' => $status
-        ];
-        $this->pdo->perform($this->query['todo_update'], $value);
+        ]);
         $this->code = StatusCode::NO_CONTENT;
 
         return $this;
@@ -109,7 +139,7 @@ class Todo extends ResourceObject
      */
     public function onDelete(string $id) : ResourceObject
     {
-        $this->pdo->perform($this->query['todo_delete'], ['id' => $id]);
+        ($this->deleteTodo)(['id' => $id]);
         $this->code = StatusCode::NO_CONTENT;
 
         return $this;
