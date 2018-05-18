@@ -11,6 +11,7 @@ use Koriym\QueryLocator\QueryLocatorModule;
 use Polidog\Todo\Form\TodoForm;
 use Ray\AuraSqlModule\AuraSqlModule;
 use Ray\Di\AbstractModule;
+use Ray\Query\SqlQueryModule;
 use Ray\WebFormModule\AuraInputModule;
 use Ray\WebFormModule\FormInterface;
 
@@ -40,5 +41,6 @@ class AppModule extends AbstractModule
         $this->install(new AuraInputModule);
         $this->bind(TodoForm::class);
         $this->bind(FormInterface::class)->annotatedWith('todo_form')->to(TodoForm::class);
+        $this->install(new SqlQueryModule($appDir . '/var/sql'));
     }
 }
