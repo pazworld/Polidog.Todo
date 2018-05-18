@@ -84,8 +84,10 @@ class Todo extends ResourceObject
 
             return $this;
         }
-        $todo['status_name'] = $todo['status'] == self::INCOMPLETE ? $this->msg[true] : $this->msg[false];
-        $this->body['todo'] = $todo;
+        $this->body = [
+            'todo' => $todo,
+            'status_name' => ($todo['status'] == self::INCOMPLETE) ? $this->msg[true] : $this->msg[false],
+        ];
 
         return $this;
     }
