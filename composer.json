@@ -20,7 +20,8 @@
         "ray/query-module": "^0.1.0"
     },
     "require-dev": {
-        "bear/qatools": "^1.4"
+        "bear/qatools": "^1.4",
+        "eaglewu/swoole-ide-helper": "dev-master"
     },
     "autoload": {
         "psr-4": {
