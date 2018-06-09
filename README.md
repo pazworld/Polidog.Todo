@@ -277,6 +277,11 @@ Edit `bin/deploy/server.yml` for server setting.
     composer deploy-stage
     composer deploy-prod
 
+## Run with Swoole
+
+    install [swoole](https://www.swoole.co.uk/)
+    php bin/web.php
+
 ## Optional modules:
 
   * [ray/aura-sql-module](https://github.com/ray-di/Ray.AuraSqlModule) - Extended PDO ([Aura.Sql](https://github.com/auraphp/Aura.Sql))
