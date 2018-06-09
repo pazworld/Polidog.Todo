@@ -279,8 +279,8 @@ Edit `bin/deploy/server.yml` for server setting.
 
 ## Run with Swoole
 
-    install [swoole](https://www.swoole.co.uk/)
-    php bin/web.php
+    pecl install swoole  // https://www.swoole.co.uk/
+    php bin/web.php 
 
 ## Optional modules:
 
