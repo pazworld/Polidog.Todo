@@ -12,17 +12,16 @@ require dirname(__DIR__) . '/autoload.php';
 
 /* @global string $context */
 $app = (new Bootstrap)->getApp('Polidog\Todo', $context);
-$http = new swoole_http_server("127.0.0.1", 8080);
-$http->on("start", function ($server) {
+$http = new swoole_http_server('127.0.0.1', 8080);
+$http->on('start', function ($server) {
     echo "Swoole http server is started at http://127.0.0.1:8080\n";
 });
-$http->on("request", function (Request $request, Response $response) use ($app) {
+$http->on('request', function (Request $request, Response $response) use ($app) {
     /** @var Response $response */
     $method = strtolower($request->server['request_method']);
     $query = $method === 'get' ? $request->get : $request->post;
-    $path = 'page://self'. $request->server['request_uri'];
-    $responder = new class($response) implements TransferInterface
-    {
+    $path = 'page://self' . $request->server['request_uri'];
+    $responder = new class($response) implements TransferInterface {
         private $response;
 
         public function __construct(Response $response)

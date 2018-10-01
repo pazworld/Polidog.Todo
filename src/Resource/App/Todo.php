@@ -11,7 +11,6 @@ use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
 use Ray\Di\Di\Assisted;
 use Ray\Di\Di\Named;
-use Ray\Query\QueryInterface;
 use Ray\Query\RowInterface;
 
 class Todo extends ResourceObject

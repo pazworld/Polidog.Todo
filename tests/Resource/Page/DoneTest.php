@@ -3,7 +3,6 @@ namespace Polidog\Todo\Resource\Page;
 
 use BEAR\Package\AppInjector;
 use BEAR\Resource\ResourceInterface;
-use BEAR\Resource\ResourceObject;
 use Koriym\HttpConstants\StatusCode;
 use PHPUnit\Framework\TestCase;
 
