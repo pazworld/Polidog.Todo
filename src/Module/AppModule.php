@@ -4,6 +4,7 @@ namespace Polidog\Todo\Module;
 use BEAR\Package\AbstractAppModule;
 use BEAR\Package\PackageModule;
 use BEAR\Package\Provide\Router\AuraRouterModule;
+use BEAR\Resource\Module\JsonSchemaModule;
 use BEAR\Sunday\Module\Constant\NamedModule;
 use josegonzalez\Dotenv\Loader as Dotenv;
 use Koriym\Now\NowModule;
