@@ -14,14 +14,14 @@
         "koriym/query-locator": "^1.3",
         "koriym/http-constants": "^1.0.1",
         "bear/accept": "^0.1.0",
-        "bear/aura-router-module": "~1.0",
-        "bear/api-doc": "^0.1",
+        "bear/aura-router-module": "^2.0.5",
         "ray/query-module": "^0.1.0"
     },
     "require-dev": {
         "bear/qatools": "^1.4",
         "roave/security-advisories": "dev-master",
-        "eaglewu/swoole-ide-helper": "dev-master"
+        "eaglewu/swoole-ide-helper": "dev-master",
+        "bear/api-doc": "^0.3.0"
     },
     "autoload": {
         "psr-4": {
@@ -38,6 +38,7 @@
             "php bin/setup.php"
         ],
         "compile": "bear.compile 'Polidog\\Todo' prod-app ./",
+        "doc": "bear.apidoc 'Polidog\\Todo' ./ docs",
         "test": [
             "phpunit"
         ],

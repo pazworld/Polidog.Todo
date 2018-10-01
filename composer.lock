@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f1cb8f518d1570ddd053be6e2d1335b",
+    "content-hash": "6c8809f0e23b83e3ad45c7d7e67d05c7",
     "packages": [
         {
             "name": "aura/accept",
@@ -362,42 +362,36 @@
         },
         {
             "name": "aura/router",
-            "version": "2.3.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Router.git",
-                "reference": "d8cb21b7fa8d2b2ae874093d5440688b3356f9c4"
+                "reference": "52507bc813c92511dbcacc7463f163ef5149ad38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/d8cb21b7fa8d2b2ae874093d5440688b3356f9c4",
-                "reference": "d8cb21b7fa8d2b2ae874093d5440688b3356f9c4",
+                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/52507bc813c92511dbcacc7463f163ef5149ad38",
+                "reference": "52507bc813c92511dbcacc7463f163ef5149ad38",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.5.0",
+                "psr/http-message": "~1.0",
+                "psr/log": "~1.0"
             },
             "require-dev": {
-                "aura/di": "~2.0"
+                "phpunit/phpunit": "~5.7 || ~4.8",
+                "zendframework/zend-diactoros": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "aura": {
-                    "type": "library",
-                    "config": {
-                        "common": "Aura\\Router\\_Config\\Common"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Aura\\Router\\": "src/",
-                    "Aura\\Router\\_Config\\": "config/"
+                    "Aura\\Router\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-2-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -405,14 +399,15 @@
                     "homepage": "https://github.com/auraphp/Aura.Router/contributors"
                 }
             ],
-            "description": "A web router implementation; given a URI path and a copy of $_SERVER, it will extract path-info parameter values for a specific route.",
+            "description": "Powerful, flexible web routing for PSR-7 requests.",
             "homepage": "https://github.com/auraphp/Aura.Router",
             "keywords": [
+                "psr-7",
                 "route",
                 "router",
                 "routing"
             ],
-            "time": "2016-10-03T20:00:15+00:00"
+            "time": "2017-03-02T16:34:47+00:00"
         },
         {
             "name": "aura/session",
@@ -645,47 +640,6 @@
             "time": "2017-08-10T16:47:43+00:00"
         },
         {
-            "name": "bear/api-doc",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bearsunday/BEAR.ApiDoc.git",
-                "reference": "a0b8fc849ce32379b82514b291774ddb8a9e2c01"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/a0b8fc849ce32379b82514b291774ddb8a9e2c01",
-                "reference": "a0b8fc849ce32379b82514b291774ddb8a9e2c01",
-                "shasum": ""
-            },
-            "require": {
-                "bear/resource": "^1.9.0",
-                "twig/twig": "^1.7|^2.4"
-            },
-            "require-dev": {
-                "bear/aura-router-module": "^1.2",
-                "phpunit/phpunit": "^6.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "BEAR\\ApiDoc\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Akihito Koriyama",
-                    "email": "akihito.koriyama@gmail.com"
-                }
-            ],
-            "description": "API Doc page class for BEAR.Sunday",
-            "time": "2017-11-21T07:20:09+00:00"
-        },
-        {
             "name": "bear/app-meta",
             "version": "1.4.0",
             "source": {
@@ -725,24 +679,25 @@
         },
         {
             "name": "bear/aura-router-module",
-            "version": "1.2.1",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.AuraRouterModule.git",
-                "reference": "bcb461e9e956549fcc7f7886889fc830c7efbe50"
+                "reference": "29a90c9d7dc757f856b5b3b68dcfd97f6a9b3e71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.AuraRouterModule/zipball/bcb461e9e956549fcc7f7886889fc830c7efbe50",
-                "reference": "bcb461e9e956549fcc7f7886889fc830c7efbe50",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.AuraRouterModule/zipball/29a90c9d7dc757f856b5b3b68dcfd97f6a9b3e71",
+                "reference": "29a90c9d7dc757f856b5b3b68dcfd97f6a9b3e71",
                 "shasum": ""
             },
             "require": {
-                "aura/router": "^2.0"
+                "aura/router": "^3.1",
+                "zendframework/zend-diactoros": "^1.7"
             },
             "require-dev": {
-                "bear/package": "^1.1",
-                "phpunit/phpunit": "^5.7"
+                "bear/package": "^1.8",
+                "phpunit/phpunit": "^6.5"
             },
             "type": "library",
             "autoload": {
@@ -760,13 +715,13 @@
                     "email": "akihito.koriyama@gmail.com"
                 }
             ],
-            "description": "Aura Router v2 module for BEAR.Package",
+            "description": "Aura Router v3 module for BEAR.Package",
             "keywords": [
                 "BEAR.Sunday",
                 "aura",
                 "router"
             ],
-            "time": "2018-06-08T00:34:07+00:00"
+            "time": "2018-09-11T10:27:28+00:00"
         },
         {
             "name": "bear/package",
@@ -2186,6 +2141,56 @@
             "time": "2017-07-14T14:27:02+00:00"
         },
         {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
@@ -2868,9 +2873,123 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "zendframework/zend-diactoros",
+            "version": "1.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-diactoros.git",
+                "reference": "20da13beba0dde8fb648be3cc19765732790f46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/20da13beba0dde8fb648be3cc19765732790f46e",
+                "reference": "20da13beba0dde8fb648be3cc19765732790f46e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^5.7.16 || ^6.0.8 || ^7.2.7",
+                "zendframework/zend-coding-standard": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev",
+                    "dev-develop": "1.9.x-dev",
+                    "dev-release-2.0": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/marshal_uri_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php"
+                ],
+                "psr-4": {
+                    "Zend\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://github.com/zendframework/zend-diactoros",
+            "keywords": [
+                "http",
+                "psr",
+                "psr-7"
+            ],
+            "time": "2018-09-05T19:29:37+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "bear/api-doc",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bearsunday/BEAR.ApiDoc.git",
+                "reference": "8ee354c1f82917f7920d8c5c3bcafe875bcc9d63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/8ee354c1f82917f7920d8c5c3bcafe875bcc9d63",
+                "reference": "8ee354c1f82917f7920d8c5c3bcafe875bcc9d63",
+                "shasum": ""
+            },
+            "require": {
+                "bear/aura-router-module": "^2.0.5",
+                "bear/resource": "^1.11.1",
+                "ext-json": "*",
+                "manuelodelain/linkify-twig-extension": "^1.0",
+                "php": ">=7.0.0",
+                "twig/extensions": "^1.5",
+                "twig/twig": "^2.5"
+            },
+            "require-dev": {
+                "bear/app-meta": "^1.4",
+                "bear/package": "^1.8",
+                "phpunit/phpunit": "^6.4"
+            },
+            "bin": [
+                "bin/bear.apidoc"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BEAR\\ApiDoc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akihito Koriyama",
+                    "email": "akihito.koriyama@gmail.com"
+                }
+            ],
+            "description": "API Doc page class for BEAR.Sunday",
+            "time": "2018-09-11T10:52:46+00:00"
+        },
         {
             "name": "bear/qatools",
             "version": "1.6.1",
@@ -3195,6 +3314,39 @@
             "time": "2018-08-23T13:15:44+00:00"
         },
         {
+            "name": "manuelodelain/linkify-twig-extension",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/manuelodelain/linkify-twig-extension.git",
+                "reference": "c4ffebe2e52422a580767d217363218aa65c51c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/manuelodelain/linkify-twig-extension/zipball/c4ffebe2e52422a580767d217363218aa65c51c6",
+                "reference": "c4ffebe2e52422a580767d217363218aa65c51c6",
+                "shasum": ""
+            },
+            "require": {
+                "misd/linkify": "^1.1"
+            },
+            "require-dev": {
+                "twig/twig": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "manuelodelain\\Twig\\Extension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Twig extension for Linkify - converts URLs and email addresses into HTML links",
+            "time": "2016-02-04T17:38:48+00:00"
+        },
+        {
             "name": "mayflower/php-codebrowser",
             "version": "1.1.4",
             "source": {
@@ -3243,6 +3395,51 @@
             "description": "A code browser that augments the code with information from various QA tools.",
             "homepage": "https://github.com/Mayflower/PHP_CodeBrowser",
             "time": "2018-02-20T23:05:03+00:00"
+        },
+        {
+            "name": "misd/linkify",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/misd-service-development/php-linkify.git",
+                "reference": "3481b148806a23b4001712de645247a1a4dcc10a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/misd-service-development/php-linkify/zipball/3481b148806a23b4001712de645247a1a4dcc10a",
+                "reference": "3481b148806a23b4001712de645247a1a4dcc10a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Misd\\Linkify\\": "src/Misd/Linkify"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Converts URLs and email addresses in text into HTML links",
+            "homepage": "https://github.com/misd-service-development/php-linkify",
+            "keywords": [
+                "convert",
+                "email address",
+                "link",
+                "url"
+            ],
+            "time": "2017-08-17T08:33:35+00:00"
         },
         {
             "name": "muglug/package-versions-56",
@@ -5872,6 +6069,61 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2017-04-07T12:08:54+00:00"
+        },
+        {
+            "name": "twig/extensions",
+            "version": "v1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig-extensions.git",
+                "reference": "2c1a86526d0044065220d1b51ac08348bea5ca82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/2c1a86526d0044065220d1b51ac08348bea5ca82",
+                "reference": "2c1a86526d0044065220d1b51ac08348bea5ca82",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "^1.27|^2.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.4",
+                "symfony/translation": "^2.7|^3.4"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_Extensions_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\Extensions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Common additional features for Twig that do not directly belong in core",
+            "keywords": [
+                "i18n",
+                "text"
+            ],
+            "time": "2018-05-22T13:26:07+00:00"
         },
         {
             "name": "vimeo/psalm",

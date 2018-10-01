@@ -12,7 +12,7 @@ class Index extends ResourceObject
                 'href' => '/',
             ],
             'curies' => [
-                'href' => 'http://localhost:8081/rels/{?rel}',
+                'href' => 'rels/{rel}.html',
                 'name' => 'pt',
                 'templated' => true
             ],
@@ -23,7 +23,8 @@ class Index extends ResourceObject
             ],
             'pt:todos' => [
                 'href' => '/todos',
-                'title' => 'todo list']
+                'title' => 'todo list'
+            ]
         ]
     ];
 

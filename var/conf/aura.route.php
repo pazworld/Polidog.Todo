@@ -1,6 +1,3 @@
-
 <?php
-/* @var $router \BEAR\Package\Provide\Router\AuraRoute */
-/* @var $schemeHost string */
-
-$router->route('/todo', '/todo/{id}');
+/** @var \Aura\Router\Map $map */
+$map->route('/todo', '/todo/{id}');

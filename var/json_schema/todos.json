@@ -1,6 +1,6 @@
 {
+  "id": "todo.json",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "todos.json",
   "title": "Collection of Todos for user",
   "type": "array",
   "items": {
