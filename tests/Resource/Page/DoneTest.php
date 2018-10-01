@@ -21,16 +21,14 @@ class DoneTest extends TestCase
 
     public function testOnGet()
     {
-        $query = ['id' => $this->getId()];
-        $page = $this->resource->uri('page://self/done')($query);
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::PERMANENT_REDIRECT, $page->code);
+        $ro = $this->resource->get('page://self/done', ['id' => $this->getId()]);
+        $this->assertSame(StatusCode::PERMANENT_REDIRECT, $ro->code);
     }
 
     public function getId()
     {
-        $this->resource->post->uri('app://self/todo')(['title' => 'test']);
-        $body = $this->resource->uri('app://self/todos')()->body;
+        $this->resource->post('app://self/todo', ['title' => 'test']);
+        $body = $this->resource->get('app://self/todos')->body;
         $id = $body[0]['id'];
 
         return $id;

@@ -5,8 +5,7 @@
     "license": "proprietary",
     "require": {
         "php": ">=7.0.0",
-        "roave/security-advisories": "dev-master",
-        "bear/package": "^1.7.8",
+        "bear/package": "^1.8.2",
         "josegonzalez/dotenv": "^2.1",
         "madapaja/twig-module": "^2.0",
         "ray/aura-sql-module": "^1.0",
@@ -21,7 +20,8 @@
     },
     "require-dev": {
         "bear/qatools": "^1.4",
-        "eaglewu/swoole-ide-helper": "dev-master"
+        "eaglewu/swoole-ide-helper": "dev-master",
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -29,17 +29,51 @@
         }
     },
     "scripts": {
-        "setup": ["php bin/setup.php"],
-        "compile": ["php bin/compile.php"],
-        "test": ["phpunit"],
-        "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
-        "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
-        "cs-fix": ["php-cs-fixer fix -v", "phpcbf src"],
+        "setup": [
+            "php bin/setup.php"
+        ],
+        "compile": "bear.compile 'Polidog\\Todo' prod-app ./",
+        "test": [
+            "phpunit"
+        ],
+        "tests": [
+            "@cs",
+            "phpmd src,tests text ./phpmd.xml",
+            "phpstan analyse -l max src tests -c phpstan.neon --no-progress",
+            "@test"
+        ],
+        "coverage": [
+            "php -dzend_extension=xdebug.so phpunit --coverage-text --coverage-html=build/coverage"
+        ],
+        "cs": [
+            "php-cs-fixer fix -v --dry-run",
+            "phpcs --standard=phpcs.xml src;"
+        ],
+        "cs-fix": [
+            "php-cs-fixer fix -v",
+            "phpcbf src tests"
+        ],
         "serve": "php -dzend_extension=xdebug.so -S 127.0.0.1:8080 -t public",
-        "serve-api": "php -dzend_extension=xdebug.so -S 127.0.0.1:8081 bootstrap/api.php",
-        "api": "php bootstrap/api.php",
-        "web": "php bootstrap/web.php",
+        "app": "php bin/app.php",
+        "page": "php bin/page.php",
         "deploy-prod": "cd bin/deploy; php deployer.phar deploy prod",
         "deploy-stage": "cd bin/deploy; php deployer.phar deploy stage"
+    },
+    "scripts-descriptions": {
+        "setup": "Setup the project",
+        "compile": "Compile autoload and DI scripts",
+        "test": "Run unit tests",
+        "tests": "Run tests and quality checks",
+        "coverage": "Generate test coverage report",
+        "cs": "Checks the coding standard",
+        "cs-fix": "Fix the coding standard",
+        "serve": "Start php built-in server",
+        "app": "Request app resource",
+        "page": "Request page resource",
+        "deploy-prod": "deploy production",
+        "deploy-stage": "deploy stating"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }

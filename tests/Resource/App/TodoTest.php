@@ -22,11 +22,10 @@ class TodoTest extends TestCase
 
     public function testOnPost()
     {
-        $page = $this->resource->post->uri('app://self/todo')(['title' => 'test']);
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::CREATED, $page->code);
+        $ro = $this->resource->post('app://self/todo', ['title' => 'test']);
+        $this->assertSame(StatusCode::CREATED, $ro->code);
 
-        return $page;
+        return $ro;
     }
 
     /**
@@ -35,28 +34,26 @@ class TodoTest extends TestCase
     public function testOnGet(ResourceObject $ro)
     {
         $location = $ro->headers[ResponseHeader::LOCATION];
-        $page = $this->resource->uri('app://self' . $location)();
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::OK, $page->code);
+        $ro = $this->resource->get('app://self' . $location);
+        $this->assertSame(StatusCode::OK, $ro->code);
     }
 
     public function testOnGet404()
     {
-        $page = $this->resource->uri('app://self/todo?id=0')();
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::NOT_FOUND, $page->code);
+        $ro = $this->resource->get('app://self/todo?id=0');
+        $this->assertSame(StatusCode::NOT_FOUND, $ro->code);
     }
 
     /**
      * @depends testOnPost
      */
-    public function testOnPut(ResourceObject $ro)
+    public function testOnPut(ResourceObject $createdRo)
     {
-        $location = $ro->headers[ResponseHeader::LOCATION];
-        $page = $this->resource->put->uri('app://self' . $location)(['status' => Todo::COMPLETE]);
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::NO_CONTENT, $page->code);
-        $get = $this->resource->uri('app://self' . $location)();
+        $location = $createdRo->headers[ResponseHeader::LOCATION];
+        $ro = $this->resource->put('app://self' . $location, ['status' => Todo::COMPLETE]);
+        /* @var $ro ResourceObject */
+        $this->assertSame(StatusCode::NO_CONTENT, $ro->code);
+        $get = $this->resource->get('app://self' . $location);
         /* @var $get ResourceObject */
         $status = $get->body['todo']['status'];
         $this->assertSame(Todo::COMPLETE, (int) $status);
@@ -68,11 +65,9 @@ class TodoTest extends TestCase
     public function testDelete(ResourceObject $ro)
     {
         $location = $ro->headers[ResponseHeader::LOCATION];
-        $page = $this->resource->delete->uri('app://self' . $location)();
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::NO_CONTENT, $page->code);
-        $page = $this->resource->uri('app://self' . $location)();
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::NOT_FOUND, $page->code);
+        $ro = $this->resource->delete('app://self' . $location);
+        $this->assertSame(StatusCode::NO_CONTENT, $ro->code);
+        $ro = $this->resource->get('app://self' . $location);
+        $this->assertSame(StatusCode::NOT_FOUND, $ro->code);
     }
 }

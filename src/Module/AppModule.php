@@ -1,6 +1,7 @@
 <?php
 namespace Polidog\Todo\Module;
 
+use BEAR\Package\AbstractAppModule;
 use BEAR\Package\PackageModule;
 use BEAR\Package\Provide\Router\AuraRouterModule;
 use BEAR\Resource\Module\JsonSchemalModule;
@@ -10,19 +11,18 @@ use Koriym\Now\NowModule;
 use Koriym\QueryLocator\QueryLocatorModule;
 use Polidog\Todo\Form\TodoForm;
 use Ray\AuraSqlModule\AuraSqlModule;
-use Ray\Di\AbstractModule;
 use Ray\Query\SqlQueryModule;
 use Ray\WebFormModule\AuraInputModule;
 use Ray\WebFormModule\FormInterface;
 
-class AppModule extends AbstractModule
+class AppModule extends AbstractAppModule
 {
     /**
      * {@inheritdoc}
      */
     protected function configure()
     {
-        $appDir = dirname(dirname(__DIR__));
+        $appDir = $this->appMeta->appDir;
         Dotenv::load([
             'filepath' => dirname(dirname(__DIR__)) . '/.env',
             'toEnv' => true

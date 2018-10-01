@@ -22,38 +22,35 @@ class IndexTest extends TestCase
 
     public function testOnGet()
     {
-        $page = $this->resource->uri('page://self/index')();
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::OK, $page->code);
-        $todos = $page['todos'];
-        /* @var $todos \BEAR\Resource\AbstractRequest */
+        $ro = $this->resource->get('page://self/index');
+        $this->assertSame(StatusCode::OK, $ro->code);
+        $todos = $ro->body['todos'];
+        /* @var \BEAR\Resource\AbstractRequest $todos */
         $requestString = $todos->toUri();
         $this->assertSame('app://self/todos', $requestString);
 
-        return $page;
+        return $ro;
     }
 
     public function testOnPost()
     {
-        $page = $this->resource->post->uri('page://self/index')(['title' => 'test']);
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::MOVED_PERMANENTLY, $page->code);
-        $this->assertSame('/', $page->headers[ResponseHeader::LOCATION]);
+        $ro = $this->resource->post('page://self/index', ['title' => 'test']);
+        $this->assertSame(StatusCode::MOVED_PERMANENTLY, $ro->code);
+        $this->assertSame('/', $ro->headers[ResponseHeader::LOCATION]);
     }
 
     public function testOnPost400()
     {
-        $page = $this->resource->post->uri('page://self/index')(['title' => '']);
-        /* @var $page ResourceObject */
-        $this->assertSame(StatusCode::BAD_REQUEST, $page->code);
+        $ro = $this->resource->post('page://self/index', ['title' => '']);
+        $this->assertSame(StatusCode::BAD_REQUEST, $ro->code);
     }
 
     /**
      * @depends testOnGet
      */
-    public function testView(ResourceObject $page)
+    public function testView(ResourceObject $ro)
     {
-        $html = (string) $page;
+        $html = (string) $ro;
         $this->assertStringStartsWith('<!DOCTYPE html>', $html);
         $this->assertStringEndsWith(('</html>'), $html);
     }

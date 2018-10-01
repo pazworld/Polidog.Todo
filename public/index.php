@@ -1,13 +1,14 @@
 <?php
-
 use BEAR\Accept\Accept;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require dirname(__DIR__) . '/autoload.php';
 
 $available = [
     'Accept' => [
         'text/html' => 'html-app',
-        'cli' => 'cli-html-app'
+        'application/hal+json' => 'hal-api-app',
+        'application/json' => 'api-app',
+        'cli' => 'cli-hal-api-app'
     ],
     'Accept-Language' => [
         'ja' => 'ja',
@@ -18,6 +19,6 @@ $available = [
     ]
 ];
 $accept = new Accept($available);
-list($context, $vary) = $accept($_SERVER);
+list($context) = $accept($_SERVER);
 
-require dirname(__DIR__) . '/bootstrap/bootstrap.php';
+exit((require dirname(__DIR__) . '/bootstrap.php')($context));

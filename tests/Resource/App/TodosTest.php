@@ -19,10 +19,9 @@ class TodosTest extends TestCase
 
     public function testOnPost()
     {
-        $page = $this->resource->uri('app://self/todos')(['status' => TODO::COMPLETE]);
-        /* @var $page \BEAR\Resource\ResourceObject */
-        $this->assertSame(200, $page->code);
+        $ro = $this->resource->get('app://self/todos', ['status' => TODO::COMPLETE]);
+        $this->assertSame(200, $ro->code);
 
-        return $page;
+        return $ro;
     }
 }

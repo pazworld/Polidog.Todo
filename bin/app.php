@@ -1,8 +1,7 @@
 <?php
-
 use BEAR\Accept\Accept;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require dirname(__DIR__) . '/autoload.php';
 
 $available = [
     'Accept' => [
@@ -19,6 +18,6 @@ $available = [
     ]
 ];
 $accept = new Accept($available);
-list($context, $vary) = $accept($_SERVER);
+list($context) = $accept($_SERVER);
 
-require dirname(__DIR__) . '/bootstrap/bootstrap.php';
+exit((require dirname(__DIR__) . '/bootstrap.php')($context));
