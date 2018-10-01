@@ -31,7 +31,7 @@ class Index extends ResourceObject
     public $body = [];
 
     /**
-     * @var string
+     * @var array
      */
     private $viewText;
 
