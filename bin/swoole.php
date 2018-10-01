@@ -17,7 +17,7 @@ $http->on('start', function ($server) {
     echo "Swoole http server is started at http://127.0.0.1:8080\n";
 });
 $http->on('request', function (Request $request, Response $response) use ($app) {
-    /** @var Response $response */
+    /* @var Response $response */
     $method = strtolower($request->server['request_method']);
     $query = $method === 'get' ? $request->get : $request->post;
     $path = 'page://self' . $request->server['request_uri'];
@@ -45,7 +45,7 @@ $http->on('request', function (Request $request, Response $response) use ($app) 
         $page->transfer($responder, $_SERVER);
     } catch (\Exception $e) {
         $match = new RouterMatch;
-        [$match->method, $match->path, $match->query] = [$method, $path, $query];
+        list($match->method, $match->path, $match->query) = [$method, $path, $query];
         (new VndError($responder))->handle($e, $match)->transfer();
     }
 });

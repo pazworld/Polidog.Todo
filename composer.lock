@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96c89ac191dd0905738acafddf9a0abc",
+    "content-hash": "5f1cb8f518d1570ddd053be6e2d1335b",
     "packages": [
         {
             "name": "aura/accept",
@@ -5944,8 +5944,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "eaglewu/swoole-ide-helper": 20,
-        "roave/security-advisories": 20
+        "roave/security-advisories": 20,
+        "eaglewu/swoole-ide-helper": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
