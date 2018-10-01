@@ -289,6 +289,12 @@ Edit `bin/deploy/server.yml` for server setting.
     pecl install swoole  // https://www.swoole.co.uk/
     php bin/web.php 
 
+## API Documentation
+
+    composer doc
+
+An API Document was published at (https://koriym.github.io/Polidog.Todo/index.html)[https://koriym.github.io/Polidog.Todo/index.html]/
+
 ## Optional modules:
 
   * [ray/aura-sql-module](https://github.com/ray-di/Ray.AuraSqlModule) - Extended PDO ([Aura.Sql](https://github.com/auraphp/Aura.Sql))
