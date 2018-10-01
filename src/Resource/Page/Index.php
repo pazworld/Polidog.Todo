@@ -79,7 +79,9 @@ class Index extends ResourceObject
         $this->resource->href('create', ['title' => $title]);
         $this->code = StatusCode::MOVED_PERMANENTLY;
         $this->headers[ResponseHeader::LOCATION] = '/';
-        $this['todo_form'] = $this->todoForm;
+        $this->body = [
+            'todo_form' => (string) $this->todoForm
+        ];
 
         return $this;
     }
