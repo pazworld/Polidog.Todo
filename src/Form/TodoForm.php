@@ -26,6 +26,10 @@ class TodoForm extends AbstractForm
         parent::__construct();
     }
 
+    /**
+     * @throws \Aura\Html\Exception\HelperNotFound
+     * @throws \Aura\Input\Exception\NoSuchInput
+     */
     public function __toString()
     {
         $form = $this->form([
