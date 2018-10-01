@@ -293,7 +293,7 @@ Edit `bin/deploy/server.yml` for server setting.
 
     composer doc
 
-An API Document was published at (https://koriym.github.io/Polidog.Todo/index.html)[https://koriym.github.io/Polidog.Todo/index.html]/
+An API Document was published at [https://koriym.github.io/Polidog.Todo/index.html](https://koriym.github.io/Polidog.Todo/index.html)
 
 ## Optional modules:
 
