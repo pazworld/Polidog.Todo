@@ -9,3 +9,4 @@
 /var/tmp/
 composer.lock
 phpunit.xml
+*.sqlite3
