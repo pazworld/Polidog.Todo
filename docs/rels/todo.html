@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>todo</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <css 
+    </head>
+<body>
+            <div class="container">
+            
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">API Doc</a></li>
+            <li class="breadcrumb-item">rels</a></li>
+            <li class="breadcrumb-item active">todo</li>
+        </ol>
+        <h2>/todo/{id}</h2>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h1>GET</h1>
+    <p class="lead">Return a todo</p>
+    <h4>Request</h4>
+                <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Required</th>
+        </tr>
+                <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>todo id</td>
+            <td></td>
+                        <td>Required</td>
+                    </tr>
+        </table>
+    <h6>
+        <span class="badge badge-default">Required</span>
+        <span>id</span>
+    </h6>
+
+            <div style="height: 30px"></div>
+        <h4>Response </h4>
+                    <table class="table table-bordered">
+    <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Constraints</th>
+    </tr>
+                    <tr>
+            <td rowspan="1">id</td>
+                        <td rowspan="1">string</td>
+                        <td rowspan="1">The unique identifier for a todo.</td>
+                            <td rowspan="1">Optional</td>            
+                                        <td> </td>
+                                                            </tr>
+                    <tr>
+            <td rowspan="2">title</td>
+                        <td rowspan="2">string</td>
+                        <td rowspan="2">The title of the todo</td>
+                            <td rowspan="2">Required</td>
+                                            <td>minLength: 1</td>
+                                    <tr>
+                                                <td>maxLength: 255</td>
+                                        </tr>
+                    </tr>
+                    <tr>
+            <td rowspan="1">status</td>
+                        <td rowspan="1">string</td>
+                        <td rowspan="1">2 if task has been completed</td>
+                            <td rowspan="1">Required</td>
+                                            <td>enum: [
+    "1",
+    "2"
+]</td>
+                                                            </tr>
+                    <tr>
+            <td rowspan="1">status_name</td>
+                        <td rowspan="1">string</td>
+                        <td rowspan="1">The name of the status</td>
+                            <td rowspan="1">Optional</td>            
+                                        <td>maxLength: 255</td>
+                                                            </tr>
+                    <tr>
+            <td rowspan="1">created</td>
+                        <td rowspan="1">string</td>
+                        <td rowspan="1">The date and time that the todo was created</td>
+                            <td rowspan="1">Required</td>
+                                            <td>format: "datetime"</td>
+                                                            </tr>
+                    <tr>
+            <td rowspan="1">updated</td>
+                        <td rowspan="1">string</td>
+                        <td rowspan="1">The date and time that the todo was last modified</td>
+                            <td rowspan="1">Required</td>
+                                            <td>format: "datetime"</td>
+                                                            </tr>
+    </table>
+
+    <div>
+        <h6>
+            <span class="badge badge-default">id</span>
+            <span>todo.json</span> <a href="../schema/todo.json"> <i class="fas fa-cloud-download-alt"></i></a>
+
+        </h6>
+    </div>
+    <div>
+        <h6>
+            <span class="badge badge-default">type</span>
+            <span>object</span>
+        </h6>
+    </div>
+    <div>
+        <h6>
+            <span class="badge badge-default">title</span>
+            <span>Todo</span>
+        </h6>
+    </div>
+    <div>
+        <h6>
+            <span class="badge badge-default">required</span>
+            <span>title, status, created, updated</span>
+        </h6>
+    </div>
+    <div>
+        <h6>
+            <span class="badge badge-default">additionalProperties</span>
+            <span>false</span>
+        </h6>
+    </div>
+        <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h1>POST</h1>
+    <p class="lead">Create a todo</p>
+    <h4>Request</h4>
+                <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Required</th>
+        </tr>
+                <tr>
+            <td>title</td>
+            <td>string</td>
+            <td>todo title</td>
+            <td></td>
+                        <td>Required</td>
+                    </tr>
+        </table>
+    <h6>
+        <span class="badge badge-default">Required</span>
+        <span>title</span>
+    </h6>
+
+                
+        <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h1>PUT</h1>
+    <p class="lead">Set Todo status</p>
+    <h4>Request</h4>
+                <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Required</th>
+        </tr>
+                <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Todo id</td>
+            <td></td>
+                        <td>Required</td>
+                    </tr>
+                    <tr>
+            <td>status</td>
+            <td>integer</td>
+            <td>Todo status</td>
+            <td></td>
+                        <td>Required</td>
+                    </tr>
+        </table>
+    <h6>
+        <span class="badge badge-default">Required</span>
+        <span>id, status</span>
+    </h6>
+
+                
+        <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h1>DELETE</h1>
+    <p class="lead">Delete todo</p>
+    <h4>Request</h4>
+                <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Required</th>
+        </tr>
+                <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>todo id</td>
+            <td></td>
+                        <td>Required</td>
+                    </tr>
+        </table>
+    <h6>
+        <span class="badge badge-default">Required</span>
+        <span>id</span>
+    </h6>
+
+                
+                </div>
+    </body>
+</html>
