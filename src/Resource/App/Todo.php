@@ -6,11 +6,11 @@ use BEAR\Resource\Annotation\JsonSchema;
 use BEAR\Resource\ResourceObject;
 use Koriym\HttpConstants\ResponseHeader;
 use Koriym\HttpConstants\StatusCode;
-use Koriym\Now\NowInterface;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
 use Ray\Di\Di\Assisted;
 use Ray\Di\Di\Named;
+use Ray\IdentityValueModule\NowInterface;
 use Ray\Query\RowInterface;
 
 class Todo extends ResourceObject

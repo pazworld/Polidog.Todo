@@ -1,9 +1,4 @@
 # Polidog.Todo
-
-最新のコードはこっち[https://github.com/koriym/Polidog.Todo](https://github.com/koriym/Polidog.Todo)
-
-
-
 [![Build Status](https://travis-ci.org/polidog/Polidog.Todo.svg?branch=master)](https://travis-ci.org/polidog/Polidog.Todo)
 
 This is a "Todos" example app built on the principles described in the [Coding Guide](http://bearsunday.github.io/manuals/1.0/en/coding-guide.html).
