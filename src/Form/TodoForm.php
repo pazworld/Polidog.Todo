@@ -23,6 +23,7 @@ class TodoForm extends AbstractForm
     public function __construct(array $msg)
     {
         $this->msg = $msg;
+        parent::__construct();
     }
 
     public function __toString()
