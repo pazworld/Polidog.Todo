@@ -24,20 +24,23 @@ class AppModule extends AbstractAppModule
     {
         $appDir = $this->appMeta->appDir;
         require_once $appDir . '/env.php';
+        // constants
         $this->install(new IdentityValueModule());
-        $this->install(new AuraRouterModule($appDir . '/var/conf/aura.route.php'));
-        $this->install(new QueryLocatorModule($appDir . '/var/sql'));
         $this->install(new NamedModule(require $appDir . '/var/locale/en.php'));
+        // router
+        $this->install(new AuraRouterModule($appDir . '/var/conf/aura.route.php'));
+        // json schema
         $this->install(new JsonSchemaModule($appDir . '/var/json_schema', $appDir . '/var/json_validate'));
         $this->install(new JsonSchemaLinkHeaderModule('https://koriym.github.io/Polidog.Todo/'));
-        // Database
+        // database
         $dbConfig = 'sqlite:' . $appDir . '/var/db/todo.sqlite3';
         $this->install(new AuraSqlModule($dbConfig));
-        // Form
+        $this->install(new SqlQueryModule($appDir . '/var/sql'));
+        // form
         $this->install(new AuraInputModule);
         $this->bind(TodoForm::class);
         $this->bind(FormInterface::class)->annotatedWith('todo_form')->to(TodoForm::class);
-        $this->install(new SqlQueryModule($appDir . '/var/sql'));
+        // base
         $this->install(new PackageModule);
     }
 }
