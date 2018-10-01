@@ -15,8 +15,8 @@ The following two branch are available.
     cd Polidog.Todo
     composer install
     composer setup
-    COMPOSER_PROCESS_TIMEOUT=0 composer serve
-    COMPOSER_PROCESS_TIMEOUT=0 composer serve-api // API + API doc server
+    composer serve
+    composer serve-api // API doc server
 
 Open http://127.0.0.1:8080/ for web page
 
@@ -260,8 +260,8 @@ curl -i -H 'Accept: application/json' http://127.0.0.1:8081/todos
 
 ## Console acess
 
-    composer web get /
-    composer api options /
+    composer page get /
+    composer app options /
 
 ## QA
 
@@ -289,15 +289,6 @@ Edit `bin/deploy/server.yml` for server setting.
     composer doc
 
 An API Document was published at [https://koriym.github.io/Polidog.Todo/index.html](https://koriym.github.io/Polidog.Todo/index.html)
-
-## Optional modules:
-
-  * [ray/aura-sql-module](https://github.com/ray-di/Ray.AuraSqlModule) - Extended PDO ([Aura.Sql](https://github.com/auraphp/Aura.Sql))
-  * [ray/web-form-module](https://github.com/ray-di/Ray.WebFormModule) - Web form ([Aura.Input](https://github.com/auraphp/Aura.Input))
-  * [madapaja/twig-module](https://github.com/madapaja/Madapaja.TwigModule) - Twig template engine
-  * [koriym/now](https://github.com/koriym/Koriym.Now) - Current datetime
-  * [koriym/query-locator](https://github.com/koriym/Koriym.QueryLocator) - SQL locator
-
 
 ![](/docs/bear.png)
 
