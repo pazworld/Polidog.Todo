@@ -39,6 +39,10 @@ class Todo extends ResourceObject
     }
 
     /**
+     * Return a todo
+     *
+     * @param string $id todo id
+     *
      * @JsonSchema(key="todo", schema="todo.json", params="todo.get.json")
      */
     public function onGet(string $id) : ResourceObject
@@ -56,8 +60,11 @@ class Todo extends ResourceObject
     }
 
     /**
-     * @Assisted("now")
+     * Create a todo
      *
+     * @param $title todo title
+     *
+     * @Assisted("now")
      * @ReturnCreatedResource
      */
     public function onPost(string $title, NowInterface $now = null) : ResourceObject
@@ -76,6 +83,12 @@ class Todo extends ResourceObject
         return $this;
     }
 
+    /**
+     * Set Todo status
+     *
+     * @param string $id     Todo id
+     * @param int    $status Todo status
+     */
     public function onPut(string $id, int $status) : ResourceObject
     {
         $value = [
@@ -88,6 +101,11 @@ class Todo extends ResourceObject
         return $this;
     }
 
+    /**
+     * Delete todo
+     *
+     * @param string $id todo id
+     */
     public function onDelete(string $id) : ResourceObject
     {
         $this->pdo->perform($this->query['todo_delete'], ['id' => $id]);
