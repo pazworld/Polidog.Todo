@@ -19,7 +19,7 @@ class TodosTest extends TestCase
 
     public function testOnPost()
     {
-        $ro = $this->resource->get('app://self/todos', ['status' => TODO::COMPLETE]);
+        $ro = $this->resource->get('app://self/todos', ['status' => Todo::COMPLETE]);
         $this->assertSame(200, $ro->code);
 
         return $ro;

@@ -28,6 +28,11 @@
             "Polidog\\Todo\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Polidog\\Todo\\": "tests/"
+        }
+    },
     "scripts": {
         "setup": [
             "php bin/setup.php"
