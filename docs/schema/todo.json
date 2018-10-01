@@ -1,5 +1,5 @@
 {
-    "id": "todo.json",
+    "id": "https://koriym.github.io/Polidog.Todo/todo.json",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "Todo",
     "type": "object",
