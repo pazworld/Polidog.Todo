@@ -1,4 +1,5 @@
 <?php
+
 use BEAR\Accept\Accept;
 
 require dirname(__DIR__) . '/autoload.php';
