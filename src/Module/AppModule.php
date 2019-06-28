@@ -36,6 +36,7 @@ class AppModule extends AbstractAppModule
         $dbConfig = 'sqlite:' . $appDir . '/var/db/todo.sqlite3';
         $this->install(new AuraSqlModule($dbConfig));
         $this->install(new SqlQueryModule($appDir . '/var/sql'));
+        $this->install(new QueryLocatorModule($appDir . '/var/sql'));
         // form
         $this->install(new AuraInputModule);
         $this->bind(TodoForm::class);
