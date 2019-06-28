@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8925ebe4929bda407c50dc3ce07d28f8",
+    "content-hash": "d600a4223d36c42e372b8a3e24f56be0",
     "packages": [
         {
             "name": "aura/accept",
@@ -3591,31 +3591,34 @@
         },
         {
             "name": "bear/api-doc",
-            "version": "0.3.1",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bearsunday/BEAR.ApiDoc.git",
-                "reference": "7f9bdcaf1ac81ef7d85af44d42e015967f180e49"
+                "reference": "f2560c1ecaf5c766b0641b4a1d05bd00f0766cf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/7f9bdcaf1ac81ef7d85af44d42e015967f180e49",
-                "reference": "7f9bdcaf1ac81ef7d85af44d42e015967f180e49",
+                "url": "https://api.github.com/repos/bearsunday/BEAR.ApiDoc/zipball/f2560c1ecaf5c766b0641b4a1d05bd00f0766cf7",
+                "reference": "f2560c1ecaf5c766b0641b4a1d05bd00f0766cf7",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
+                "koriym/alps": "^0.1",
                 "manuelodelain/linkify-twig-extension": "^1.0",
-                "php": ">=7.0.0",
+                "php": ">=7.1.0",
                 "twig/extensions": "^1.5",
-                "twig/twig": "^2.5"
+                "twig/twig": "^2.11"
             },
             "require-dev": {
-                "bear/app-meta": "^1.4",
+                "bear/app-meta": "^1.5",
                 "bear/aura-router-module": "^2.0.5",
-                "bear/package": "^1.8",
-                "bear/resource": "^1.11.1",
-                "phpunit/phpunit": "^6.4"
+                "bear/package": "^1.9.3",
+                "bear/resource": "^1.12",
+                "koriym/json-schema-faker": "^0.1",
+                "phpunit/phpunit": "^7.5",
+                "vimeo/psalm": "dev-master"
             },
             "bin": [
                 "bin/bear.apidoc"
@@ -3637,7 +3640,7 @@
                 }
             ],
             "description": "API Doc page class for BEAR.Sunday",
-            "time": "2019-04-14T10:55:01+00:00"
+            "time": "2019-06-23T21:45:36+00:00"
         },
         {
             "name": "bear/qatools",
@@ -4058,6 +4061,50 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "time": "2019-06-01T10:32:12+00:00"
+        },
+        {
+            "name": "koriym/alps",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/koriym/alps.git",
+                "reference": "0636bf9a90837da8f97e8caf7dd8dc864f97b67e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/koriym/alps/zipball/0636bf9a90837da8f97e8caf7dd8dc864f97b67e",
+                "reference": "0636bf9a90837da8f97e8caf7dd8dc864f97b67e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpmd/phpmd": "^2.6",
+                "phpstan/phpstan-shim": "^0.10",
+                "phpunit/phpunit": "^7.5",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Koriym\\Alps\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akihito Koriyama",
+                    "email": "akihito.koriyama@gmail.com"
+                }
+            ],
+            "description": "ALPS for PHP",
+            "time": "2019-06-23T18:32:54+00:00"
         },
         {
             "name": "manuelodelain/linkify-twig-extension",
