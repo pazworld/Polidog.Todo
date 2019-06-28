@@ -11,7 +11,7 @@ class TodoFormTest extends TestCase
      */
     private $form;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->form = (new AppInjector('Polidog\Todo', 'html-app'))->getInstance(TodoForm::class);
     }
