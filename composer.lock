@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "228ac61ffd11bc384ee23a7da6b2b8ad",
+    "content-hash": "8925ebe4929bda407c50dc3ce07d28f8",
     "packages": [
         {
             "name": "aura/accept",
@@ -2807,32 +2807,31 @@
         },
         {
             "name": "ray/query-module",
-            "version": "0.2.1",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ray-di/Ray.QueryModule.git",
-                "reference": "7538a136e2f28f7fcddb10ef01bac92c047f4212"
+                "reference": "fa290d9e5d4c931af5a163f117002e78f63d2ffb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ray-di/Ray.QueryModule/zipball/7538a136e2f28f7fcddb10ef01bac92c047f4212",
-                "reference": "7538a136e2f28f7fcddb10ef01bac92c047f4212",
+                "url": "https://api.github.com/repos/ray-di/Ray.QueryModule/zipball/fa290d9e5d4c931af5a163f117002e78f63d2ffb",
+                "reference": "fa290d9e5d4c931af5a163f117002e78f63d2ffb",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
+                "ext-pdo": "*",
                 "guzzlehttp/guzzle": "^6.3",
                 "php": ">=7.1.0",
-                "ray/aura-sql-module": "^1.6",
-                "ray/di": "^2.6.6"
+                "ray/aop": "^2.8.4",
+                "ray/aura-sql-module": "^1.6"
             },
             "require-dev": {
+                "bear/cs": "^1.1",
                 "bear/resource": "^1.9.2",
-                "friendsofphp/php-cs-fixer": "^2.11",
-                "phpmd/phpmd": "^2.6",
-                "phpstan/phpstan-shim": "^0.9",
                 "phpunit/phpunit": "^6.5",
-                "ray/aop": "^2.7",
-                "squizlabs/php_codesniffer": "^3.2"
+                "ray/di": "^2.8.1"
             },
             "type": "library",
             "extra": {
@@ -2859,7 +2858,7 @@
                 "Skeleton",
                 "psr"
             ],
-            "time": "2018-07-20T21:26:39+00:00"
+            "time": "2019-06-02T13:56:54+00:00"
         },
         {
             "name": "ray/web-form-module",
@@ -7182,7 +7181,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
     },
     "platform-dev": []
 }
