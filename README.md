@@ -16,7 +16,9 @@ The following two branch are available.
     composer install
     composer setup
     composer serve
-    composer serve-api // API doc server
+
+## API Doc    
+    Open [docs/index.md](https://github.com/koriym/Polidog.Todo/blob/master/docs/index.md) to see API doc page.
 
 Open http://127.0.0.1:8080/ for web page
 
